@@ -1,0 +1,34 @@
+.header {
+  margin-bottom: 3rem;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.role {
+  font-size: 0.875rem;
+  color: #888888;
+  margin: 0;
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .name {
+    font-size: 1.5rem;
+  }
+  
+  .role {
+    font-size: 0.813rem;
+  }
+}
