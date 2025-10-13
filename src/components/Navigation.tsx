@@ -12,8 +12,9 @@ export function Navigation() {
           <a href="#" className="nav-logo">luuan11</a>
           
           <div className="nav-links">
-            <a href="#education" className="nav-link">education</a>
             <a href="#experience" className="nav-link">experience</a>
+            <a href="#projects" className="nav-link">projects</a>
+            <a href="#education" className="nav-link">education</a>
           </div>
           
           <div className="nav-right">

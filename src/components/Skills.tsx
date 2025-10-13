@@ -55,7 +55,7 @@ export function Skills() {
         className={`skills-container scroll-reveal ${isVisible ? 'is-visible' : ''}`}
       >
         <h2 className="skills-title">
-          SKILLS
+          Skills
         </h2>
         
         <div className="skills-grid">
