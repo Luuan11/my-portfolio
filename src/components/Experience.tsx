@@ -14,9 +14,17 @@ export function Experience() {
             className={`experience-card scroll-reveal scroll-reveal-delay-1 ${cardVisible ? 'is-visible' : ''}`}
           >
             <div className="card-header">
-              <div>
-                <h4 className="company-name">Mercado Libre</h4>
-                <h3 className="card-title">Software Developer</h3>
+              <div className="company-info">
+                <div className="company-logo">
+                  <img 
+                    src="https://media.licdn.com/dms/image/v2/D4D0BAQE4q-iBP4fZ0g/company-logo_200_200/B4DZUUipIKG8AI-/0/1739806380950/mercadolivre_com_logo?e=1762992000&v=beta&t=hvMhAYLxoojW9qQPudPQFtAxIYxmnDaklaumByPu72o" 
+                    alt="Mercado Libre Logo" 
+                  />
+                </div>
+                <div>
+                  <h4 className="company-name">Mercado Libre</h4>
+                  <h3 className="card-title">Software Developer</h3>
+                </div>
               </div>
               <div className="card-meta">
                 <p className="card-date">Mar 2024 • Present</p>
