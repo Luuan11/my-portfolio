@@ -91,6 +91,14 @@
   background: var(--hover-bg);
 }
 
+.tech-card.highlight {
+  border: 1px solid var(--purple-primary);
+}
+
+.tech-card.highlight:hover {
+  transform: scale(1.15) translateY(-5px);
+}
+
 .tech-icon {
   font-size: 3rem;
   line-height: 1;
