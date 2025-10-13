@@ -1,5 +1,5 @@
 import { useScrollReveal } from '../hooks/useScrollReveal'
-import { useTypewriter } from '../hooks/useTypewriter'
+import { useTypewriterLoop } from '../hooks/useTypewriterLoop'
 import '../styles/animations.css'
 import './Hero.css'
 
@@ -7,7 +7,12 @@ export function Hero() {
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal()
   const { elementRef: descRef, isVisible: descVisible } = useScrollReveal()
   const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal()
-  const typewriterText = useTypewriter('Software Developer', 100)
+  const typewriterText = useTypewriterLoop(
+    ['Software Developer', 'Backend Developer', 'Frontend Developer'],
+    100,
+    50,
+    2000
+  )
 
   return (
     <section className="hero">
@@ -27,7 +32,7 @@ export function Hero() {
             ref={descRef as React.RefObject<HTMLParagraphElement>}
             className={`hero-description scroll-reveal scroll-reveal-delay-1 ${descVisible ? 'is-visible' : ''}`}
           >
-            I am a software Developer passionate about development, with comprehensive skills in both frontend and backend, which allow me to develop great digital experiences.
+            I am a <b> software Developer </b> passionate about development, with comprehensive skills in both frontend and backend, which allow me to develop great digital experiences.
           </p>
         </div>
         <div 
