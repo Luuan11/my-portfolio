@@ -32,7 +32,7 @@ export function Hero() {
             ref={descRef as React.RefObject<HTMLParagraphElement>}
             className={`hero-description scroll-reveal scroll-reveal-delay-1 ${descVisible ? 'is-visible' : ''}`}
           >
-            I am a <b> software Developer </b> passionate about development, with comprehensive skills in both frontend and backend, which allow me to develop great digital experiences.
+            I am a <span className="highlight-purple">Software Developer</span> passionate about development, with comprehensive skills in both frontend and backend, which allow me to develop great digital experiences.
           </p>
         </div>
         <div 

@@ -80,6 +80,12 @@
   transition: color 0.3s;
 }
 
+.highlight-purple {
+  color: var(--purple-primary);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
 .hero-buttons {
   display: flex;
   gap: 1rem;
