@@ -16,7 +16,7 @@ const skills = [
   {
     icon: FaServer,
     title: 'Back-end Development',
-    description: 'Proficient in Node.js, Golang, Java, creating robust and scalable APIs',
+    description: 'Proficient in Golang, Java, creating robust and scalable APIs',
     highlight: true
   },
   {
