@@ -25,7 +25,7 @@ const companies = [
       },
       {
         team: 'CX Socials',
-        period: 'Nov 2024 • Jun 2025',
+        period: 'Nov 2024 • Aug 2025',
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
         technologies: ['Java', 'TypeScript', 'MySQL', 'Docker', 'Jenkins', 'GitHub Actions']
       },

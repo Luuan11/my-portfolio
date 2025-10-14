@@ -78,7 +78,7 @@
 }
 
 .skill-card.highlighted .skill-title {
-  color: var(--bg-primary);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .skill-card.highlighted .skill-description {
