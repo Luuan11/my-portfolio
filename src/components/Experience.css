@@ -149,7 +149,7 @@
 }
 
 .card-location {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   margin: 0;
   transition: color 0.3s;
@@ -242,8 +242,13 @@
   top: 8px;
   bottom: 8px;
   width: 2px;
-  background: var(--border-color);
-  transition: background-color 0.3s;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    var(--border-color) 5%, 
+    var(--border-color) 95%, 
+    transparent 100%);
+  transition: opacity 0.3s;
+  opacity: 0.5;
 }
 
 .timeline-item {
@@ -443,9 +448,24 @@
   .card-meta {
     text-align: right;
   }
+
+  .card-date,
+  .card-location {
+    font-size: 0.8rem;
+  }
   
   .timeline {
     padding-left: 1.5rem;
+  }
+
+  .timeline::before {
+    left: 5px;
+  }
+
+  .timeline-dot {
+    left: -1.5rem;
+    width: 12px;
+    height: 12px;
   }
   
   .timeline-header {
