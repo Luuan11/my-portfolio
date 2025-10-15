@@ -5,8 +5,8 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: var(--purple-primary);
-  color: var(--bg-primary);
+  background: var(--bg-primary);
+  color: var(--purple-primary);
   border: none;
   cursor: pointer;
   display: flex;
@@ -24,11 +24,13 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  border: 2px solid var(--purple-primary);
 }
 
 .scroll-to-top:hover {
-  background: var(--purple-light);
-  transform: translateY(-4px);
+  background: var(--purple-primary);
+  color: var(--bg-primary);
+  transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(167, 139, 250, 0.4);
 }
 
