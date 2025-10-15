@@ -57,7 +57,7 @@
 .academic-card {
   background: var(--card-bg);
   border-radius: 12px;
-  padding: 2.5rem;
+  padding: 1rem;
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
   position: relative;
@@ -76,7 +76,7 @@
   align-items: flex-start;
   gap: 1.5rem;
   margin-bottom: 0;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 .academic-info-left {
