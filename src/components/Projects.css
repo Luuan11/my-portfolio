@@ -1,5 +1,4 @@
 .projects {
-  min-height: 100vh;
   background-color: var(--bg-primary);
   padding: 6rem 0 4rem;
   transition: background-color 0.3s;
@@ -137,6 +136,19 @@
   color: white;
   border-color: var(--purple-primary);
   transform: translateY(-2px);
+}
+
+.project-link:focus {
+  outline: none;
+  background: var(--purple-primary);
+  color: white;
+  border-color: var(--purple-primary);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.3);
+}
+
+.project-link:focus-visible {
+  outline: 3px solid var(--purple-primary);
+  outline-offset: 2px;
 }
 
 .project-link svg {

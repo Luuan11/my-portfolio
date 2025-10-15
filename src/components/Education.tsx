@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useState, useRef, useEffect } from 'react'
 import { FaGraduationCap, FaCertificate, FaExternalLinkAlt } from 'react-icons/fa'
 import '../styles/animations.css'
 import './Education.css'
@@ -36,9 +35,38 @@ const certifications = [
 ]
 
 export function Education() {
-  const { elementRef: academicRef, isVisible: academicVisible } = useScrollReveal()
-  const { elementRef: certRef, isVisible: certVisible } = useScrollReveal()
   const [expandedCards, setExpandedCards] = useState<number[]>([])
+  const academicRefs = useRef<(HTMLDivElement | null)[]>([])
+  const certRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px',
+      }
+    )
+
+    academicRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    certRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const toggleCard = (index: number) => {
     setExpandedCards(prev => 
@@ -63,8 +91,8 @@ export function Education() {
             {academicEducation.map((edu, index) => (
               <div 
                 key={index}
-                ref={academicRef as React.RefObject<HTMLDivElement>}
-                className={`academic-card scroll-reveal scroll-reveal-delay-${index + 1} ${academicVisible ? 'is-visible' : ''}`}
+                ref={(el) => (academicRefs.current[index] = el)}
+                className={`academic-card scroll-reveal scroll-reveal-delay-${index + 1}`}
               >
                 <div className="academic-header">
                   <div className="academic-info-left">
@@ -89,7 +117,9 @@ export function Education() {
                 <button 
                   className="expand-button"
                   onClick={() => toggleCard(index)}
-                  aria-label={expandedCards.includes(index) ? "Collapse" : "Expand"}
+                  aria-label={expandedCards.includes(index) ? `Collapse ${edu.institution} education details` : `Expand ${edu.institution} education details`}
+                  aria-expanded={expandedCards.includes(index)}
+                  tabIndex={0}
                 >
                   <svg 
                     className={`expand-icon ${expandedCards.includes(index) ? 'expanded' : ''}`}
@@ -121,8 +151,8 @@ export function Education() {
             {certifications.map((cert, index) => (
               <div 
                 key={index}
-                ref={certRef as React.RefObject<HTMLDivElement>}
-                className={`certification-card scroll-reveal scroll-reveal-delay-${(index % 3) + 1} ${certVisible ? 'is-visible' : ''}`}
+                ref={(el) => (certRefs.current[index] = el)}
+                className={`certification-card scroll-reveal scroll-reveal-delay-${(index % 3) + 1}`}
               >
                 <div className="certification-header">
                   <div className="cert-logo">
@@ -152,6 +182,7 @@ export function Education() {
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="cert-link"
+                      aria-label={`View ${cert.name} credential from ${cert.issuer}`}
                     >
                       <span>View Credential</span>
                       <FaExternalLinkAlt />

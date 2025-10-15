@@ -1,5 +1,4 @@
 .skills {
-  min-height: 100vh;
   background-color: var(--bg-primary);
   padding: 6rem 0 4rem;
   transition: background-color 0.3s;

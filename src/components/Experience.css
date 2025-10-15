@@ -1,5 +1,4 @@
 .experience {
-  min-height: 100vh;
   background-color: var(--bg-primary);
   padding: 6rem 0 4rem;
   transition: background-color 0.3s;
@@ -178,6 +177,20 @@
   border-color: var(--purple-primary);
   transform: translateX(-50%) scale(1.15);
   box-shadow: 0 6px 20px rgba(167, 139, 250, 0.5);
+}
+
+.expand-button:focus {
+  outline: none;
+  background: var(--purple-primary);
+  color: #ffffff;
+  border-color: var(--purple-primary);
+  transform: translateX(-50%) scale(1.15);
+  box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.3), 0 6px 20px rgba(167, 139, 250, 0.5);
+}
+
+.expand-button:focus-visible {
+  outline: 3px solid var(--purple-primary);
+  outline-offset: 4px;
 }
 
 .expand-icon {
