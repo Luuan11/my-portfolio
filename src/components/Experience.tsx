@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useState, useRef, useEffect } from 'react'
 import '../styles/animations.css'
 import './Experience.css'
 
@@ -62,8 +61,33 @@ const companies = [
 ]
 
 export function Experience() {
-  const { elementRef: cardRef, isVisible: cardVisible } = useScrollReveal()
   const [expandedCards, setExpandedCards] = useState<number[]>([])
+  const experienceRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px',
+      }
+    )
+
+    experienceRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   const toggleCard = (index: number) => {
     setExpandedCards(prev => 
@@ -81,8 +105,8 @@ export function Experience() {
           {companies.map((company, companyIndex) => (
             <div 
               key={companyIndex}
-              ref={cardRef as React.RefObject<HTMLDivElement>}
-              className={`experience-card scroll-reveal scroll-reveal-delay-${companyIndex + 1} ${cardVisible ? 'is-visible' : ''}`}
+              ref={(el) => (experienceRefs.current[companyIndex] = el)}
+              className={`experience-card scroll-reveal scroll-reveal-delay-${companyIndex + 1}`}
             >
               <div className="card-header">
                 <div className="company-info">
@@ -147,7 +171,9 @@ export function Experience() {
               <button 
                 className="expand-button"
                 onClick={() => toggleCard(companyIndex)}
-                aria-label={expandedCards.includes(companyIndex) ? "Collapse" : "Expand"}
+                aria-label={expandedCards.includes(companyIndex) ? `Collapse ${company.name} experience details` : `Expand ${company.name} experience details`}
+                aria-expanded={expandedCards.includes(companyIndex)}
+                tabIndex={0}
               >
                 <svg 
                   className={`expand-icon ${expandedCards.includes(companyIndex) ? 'expanded' : ''}`}

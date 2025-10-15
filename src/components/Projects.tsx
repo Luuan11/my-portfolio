@@ -1,4 +1,4 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useRef, useEffect } from 'react'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import '../styles/animations.css'
 import './Projects.css'
@@ -29,7 +29,32 @@ const projects = [
 ]
 
 export function Projects() {
-  const { elementRef: cardRef, isVisible: cardVisible } = useScrollReveal()
+  const projectRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px',
+      }
+    )
+
+    projectRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   return (
     <section className="projects" id="projects">
@@ -39,8 +64,8 @@ export function Projects() {
           {projects.map((project, index) => (
             <div 
               key={index}
-              ref={cardRef as React.RefObject<HTMLDivElement>}
-              className={`project-card scroll-reveal scroll-reveal-delay-${(index % 3) + 1} ${cardVisible ? 'is-visible' : ''}`}
+              ref={(el) => (projectRefs.current[index] = el)}
+              className={`project-card scroll-reveal scroll-reveal-delay-${(index % 3) + 1}`}
             >
               <div className="project-image-wrapper">
                 <img src={project.image} alt={project.title} className="project-image" />
