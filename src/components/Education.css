@@ -58,9 +58,11 @@
 .academic-card {
   background: var(--card-bg);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 2.5rem;
   border: 1px solid var(--border-color);
   transition: all 0.3s ease;
+  position: relative;
+  margin-bottom: 1rem;
 }
 
 .academic-card:hover {
@@ -71,32 +73,42 @@
 
 .academic-header {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
+  padding-bottom: 2rem;
+}
+
+.academic-info-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
 }
 
 .institution-logo {
-  width: 80px;
-  height: 80px;
-  background: #ffffff;
-  border-radius: 12px;
+  width: 70px;
+  height: 70px;
+  background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
-  border: 2px solid var(--border-color);
-  transition: all 0.3s ease;
   flex-shrink: 0;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  transition: all 0.5s ease;
 }
 
 .institution-logo img {
   width: 100%;
   height: 100%;
+  border-radius: 12px;
   object-fit: contain;
 }
 
 .academic-card:hover .institution-logo {
-  border-color: var(--purple-primary);
+  border: 2px solid var(--purple-primary);
 }
 
 .academic-info {
@@ -113,34 +125,43 @@
 }
 
 .degree-name {
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.75rem;
+  margin: 0;
   transition: color 0.3s;
 }
 
 .academic-meta {
   display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
 }
 
 .academic-period,
 .academic-location {
   font-size: 0.9rem;
   color: var(--text-secondary);
+  margin: 0;
   transition: color 0.3s;
 }
 
-.academic-period::before {
-  content: '📅 ';
-  margin-right: 0.25rem;
+.academic-body {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  border-top: 1px solid transparent;
 }
 
-.academic-location::before {
-  content: '📍 ';
-  margin-right: 0.25rem;
+.academic-body.expanded {
+  max-height: 2000px;
+  opacity: 1;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  overflow: visible;
 }
 
 .academic-description {
@@ -149,6 +170,43 @@
   color: var(--text-secondary);
   margin: 0;
   transition: color 0.3s;
+}
+
+.expand-button {
+  background: var(--card-bg);
+  border: 2px solid var(--purple-primary);
+  cursor: pointer;
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-primary);
+  transition: all 0.3s;
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 4px 12px rgba(167, 139, 250, 0.3);
+}
+
+.expand-button:hover {
+  background: var(--purple-primary);
+  color: #ffffff;
+  border-color: var(--purple-primary);
+  transform: translateX(-50%) scale(1.15);
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.5);
+}
+
+.expand-icon {
+  transition: transform 0.3s ease;
+}
+
+.expand-icon.expanded {
+  transform: rotate(180deg);
 }
 
 /* Certifications Styles */
