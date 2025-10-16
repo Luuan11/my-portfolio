@@ -11,28 +11,9 @@ const companies = [
     location: 'Brazil',
     experiences: [
       {
-        team: 'CX Verdi',
-        period: 'Aug 2025 • Present',
+        team: 'Software Developer',
         description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        technologies: ['Java', 'Go', 'TypeScript', 'MySQL', 'PostgreSQL', 'Docker', 'Kubernetes']
-      },
-      {
-        team: 'Meliphone',
-        period: 'Jun 2025 • Aug 2025',
-        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        technologies: ['Java', 'Go', 'TypeScript', 'PostgreSQL', 'Docker', 'Kubernetes']
-      },
-      {
-        team: 'CX Socials',
-        period: 'Nov 2024 • Aug 2025',
-        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        technologies: ['Java', 'TypeScript', 'MySQL', 'Docker', 'Jenkins', 'GitHub Actions']
-      },
-      {
-        team: 'CX Offline',
-        period: 'Mar 2024 • Nov 2024',
-        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        technologies: ['Java', 'Go', 'MySQL', 'PostgreSQL', 'Docker', 'Kubernetes']
+        technologies: ['Golang', 'Java', 'NoSQL', 'MySQL', 'Grafana', 'Docker', 'CI/CD', 'Jenkins', 'Git']
       },
     ]
   },
@@ -45,7 +26,6 @@ const companies = [
     experiences: [
       {
         team: 'IT Analyst',
-        period: 'Jan 2024 • Mar 2024',
         promoted: true,
         description: 'I worked as an Analyst responsible for IT at Cotecna Level Brazil, managing technical support requests, providing devices to employees, overseeing and controlling the IT budget in Brazil, and coordinating multiple external IT teams. I was also involved in strategic decision-making for IT and the development of web applications.',
         technologies: ['Python', 'SQL Server', 'Windows Server', 'PHP', 'Backups', 'IT Management']
