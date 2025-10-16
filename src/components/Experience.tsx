@@ -12,8 +12,8 @@ const companies = [
     experiences: [
       {
         team: 'Software Developer',
-        description: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-        technologies: ['Golang', 'Java', 'NoSQL', 'MySQL', 'Grafana', 'Docker', 'CI/CD', 'Jenkins', 'Git']
+        description: 'As a Software Developer, I worked on resolving legacy issues in large-scale applications with high responsibility for CX within the Mercado Libre ecosystem, spanning multiple countries across Latin America. I was responsible for integrating social media platforms — including Twitter/X, Facebook, and Instagram — by developing a unified online communication system that expanded support channels and strengthened the bridge between users and representatives, resulting in faster response times and more personalized customer experiences. I also developed an integration with Twilio for telephony services, enabling automatic call transcription and using that data as intelligent context for the next representative in case of call transfers. This solution led to a 9% reduction in Average Handling Time (AHT), significantly improving service efficiency. Currently, I am focused on the development of MCPs and autonomous agents integrated with Verdi, applying LLMs for automated interpretation and resolution of support requests.',
+        technologies: ['Golang', 'Java', 'Git', 'NoSQL', 'MySQL', 'Grafana', 'Docker', 'CI/CD', 'Jenkins']
       },
     ]
   },
@@ -116,7 +116,7 @@ export function Experience() {
                         <div className="timeline-header">
                           <div className="timeline-title-wrapper">
                             <h4 className="timeline-team">{exp.team}</h4>
-                            {exp.promoted && (
+                            {'promoted' in exp && exp.promoted && (
                               <span className="promoted-badge">
                                 <svg 
                                   width="14" 
@@ -134,7 +134,7 @@ export function Experience() {
                               </span>
                             )}
                           </div>
-                          <span className="timeline-period">{exp.period}</span>
+                          {'period' in exp && <span className="timeline-period">{exp.period}</span>}
                         </div>
                         <p className="timeline-description">{exp.description}</p>
                         <div className="timeline-technologies">
