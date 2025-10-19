@@ -1,10 +1,10 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { FaCode, FaServer, FaDatabase } from 'react-icons/fa'
 import { MdDevices } from 'react-icons/md'
 import { BiGitBranch } from 'react-icons/bi'
 import { RiPencilRulerLine } from 'react-icons/ri'
-import '../styles/animations.css'
-import './Skills.css'
+import '../../styles/animations.css'
+import './styles.css'
 
 const skills = [
   {

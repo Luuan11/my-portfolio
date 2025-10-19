@@ -1,6 +1,6 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
-import '../styles/animations.css'
-import './Footer.css'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
+import '../../styles/animations.css'
+import './styles.css'
 
 export function Footer() {
   const { elementRef: footerRef, isVisible: footerVisible } = useScrollReveal()

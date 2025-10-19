@@ -1,7 +1,7 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
-import { useTypewriterLoop } from '../hooks/useTypewriterLoop'
-import '../styles/animations.css'
-import './Hero.css'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
+import { useTypewriterLoop } from '../../hooks/useTypewriterLoop'
+import '../../styles/animations.css'
+import './styles.css'
 
 export function Hero() {
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal()

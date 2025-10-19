@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { SettingsModal } from './SettingsModal'
-import './Navigation.css'
+import { SettingsModal } from '../SettingsModal'
+import './styles.css'
 
 export function Navigation() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
