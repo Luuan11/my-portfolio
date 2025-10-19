@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
-import '../styles/animations.css'
-import './Experience.css'
+import '../../styles/animations.css'
+import './styles.css'
 
 const companies = [
   {

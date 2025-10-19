@@ -1,10 +1,10 @@
-import { useScrollReveal } from '../hooks/useScrollReveal'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { FaReact, FaNodeJs, FaDocker, FaGitAlt, FaPython, FaJava } from 'react-icons/fa'
 import { SiJavascript, SiTypescript, SiGo, SiMysql, SiMongodb, SiPostgresql, SiPostman, SiTailwindcss } from 'react-icons/si'
 import { VscVscode } from "react-icons/vsc";
 
-import '../styles/animations.css'
-import './Technologies.css'
+import '../../styles/animations.css'
+import './styles.css'
 
 const technologies = [
   { name: 'React', icon: FaReact, color: '#61DAFB', highlight: false },

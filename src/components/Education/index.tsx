@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { FaGraduationCap, FaCertificate, FaExternalLinkAlt } from 'react-icons/fa'
-import '../styles/animations.css'
-import './Education.css'
+import '../../styles/animations.css'
+import './styles.css'
 
 const academicEducation = [
    {

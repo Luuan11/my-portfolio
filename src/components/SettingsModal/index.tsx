@@ -1,5 +1,5 @@
-import { useTheme } from '../contexts/ThemeContext'
-import './SettingsModal.css'
+import { useTheme } from '../../contexts/ThemeContext'
+import './styles.css'
 
 interface SettingsModalProps {
   isOpen: boolean

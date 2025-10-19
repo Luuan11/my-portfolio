@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
-import '../styles/animations.css'
-import './Projects.css'
+import '../../styles/animations.css'
+import './styles.css'
 
 const projects = [
   {
