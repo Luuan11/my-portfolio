@@ -5,7 +5,7 @@ import './styles.css'
 const companies = [
   {
     name: 'Mercado Libre',
-    logo: '/src/assets/images/mercadolivre.jpeg',
+    logo: '/images/mercadolivre.jpeg',
     position: 'Software Developer',
     period: 'Mar 2024 • Present',
     location: 'Brazil',
@@ -19,7 +19,7 @@ const companies = [
   },
   {
     name: 'Cotecna Inspection',
-    logo: '/src/assets/images/cotecna.jpeg',
+    logo: '/images/cotecna.jpeg',
     position: 'IT Analyst',
     period: 'Jan 2022 • Mar 2024',
     location: 'Brazil',
