@@ -5,7 +5,7 @@ import './styles.css'
 const companies = [
   {
     name: 'Mercado Libre',
-    logo: 'https://media.licdn.com/dms/image/v2/D4D0BAQE4q-iBP4fZ0g/company-logo_200_200/B4DZUUipIKG8AI-/0/1739806380950/mercadolivre_com_logo?e=1762992000&v=beta&t=hvMhAYLxoojW9qQPudPQFtAxIYxmnDaklaumByPu72o',
+    logo: '/images/mercadolivre.jpeg',
     position: 'Software Developer',
     period: 'Mar 2024 • Present',
     location: 'Brazil',
@@ -13,13 +13,13 @@ const companies = [
       {
         team: 'Software Developer',
         description: 'As a Software Developer, I worked on resolving legacy issues in large-scale applications with high responsibility for CX within the Mercado Libre ecosystem, spanning multiple countries across Latin America. I was responsible for integrating social media platforms — including Twitter/X, Facebook, and Instagram — by developing a unified online communication system that expanded support channels and strengthened the bridge between users and representatives, resulting in faster response times and more personalized customer experiences. I also developed an integration with Twilio for telephony services, enabling automatic call transcription and using that data as intelligent context for the next representative in case of call transfers. This solution led to a 9% reduction in Average Handling Time (AHT), significantly improving service efficiency. Currently, I am focused on the development of MCPs and autonomous agents integrated with Verdi, applying LLMs for automated interpretation and resolution of support requests.',
-        technologies: ['Golang', 'Java', 'Git', 'NoSQL', 'MySQL', 'Grafana', 'Docker', 'CI/CD', 'Jenkins']
+        technologies: ['Golang', 'Java', 'Git', 'NoSQL', 'MySQL', 'Datadog', 'Grafana', 'Docker', 'CI/CD', 'Jenkins']
       },
     ]
   },
   {
     name: 'Cotecna Inspection',
-    logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQFArlScTeSOGw/company-logo_200_200/company-logo_200_200/0/1631354712883?e=1762992000&v=beta&t=2AjaujZKLf0IicEvtuseY-rKJj1o2XYkFp36-Cd9mrc',
+    logo: '/images/cotecna.jpeg',
     position: 'IT Analyst',
     period: 'Jan 2022 • Mar 2024',
     location: 'Brazil',
