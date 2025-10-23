@@ -10,7 +10,7 @@ const academicEducation = [
     period: '2024 - 2025',
     location: 'Brazil',
     description: "During my postgraduate studies in Full Cycle Go Expert, I deepened my knowledge in advanced and scalable development with Go, covering topics such as fundamentals of the language and standard packages, context management and scope control, database integration using SQLC, project packaging and modularization, unit, integration, and benchmark testing, and the development of REST, GraphQL, and gRPC APIs. The program also included concurrency with goroutines and channels, event handling and asynchronous processing, private modules and dependency management, file uploads to AWS S3, CLI creation with Cobra, application of Unit of Work and Dependency Injection patterns, implementation of Clean Architecture principles, and deployment with Docker and Kubernetes. This course provided a comprehensive, hands-on education focused on building robust and efficient applications in Go.",
-    logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQHwahyQD-Rolg/company-logo_100_100/company-logo_100_100/0/1630578196249?e=1763596800&v=beta&t=jxeguO3k11JsxLp3QY8bvpFPtmmlIZftl2a6Cj9Btdo'
+    logo: 'src/assets/images/fullcycle.jpeg'
   },
   {
     institution: 'Uninove Nove de Julho',
@@ -18,7 +18,7 @@ const academicEducation = [
     period: '2019 - 2023',
     location: 'Brazil',
     description: "During my Bachelor's degree in Information Systems, I gained experience with a wide range of technologies and tools used in software development and IT management. Some of the main technologies I learned include programming languages such as Java, Python, C#, PHP, and JavaScript; databases like MySQL, Oracle, SQL Server, PostgreSQL, and MongoDB; and development frameworks such as Spring, Hibernate, AngularJS, React, and Vue.js. I also acquired knowledge of operating systems including Windows, Linux, and macOS; integrated development environments (IDEs) such as Eclipse, Visual Studio, PyCharm, and NetBeans; project management tools like JIRA, Trello, and Asana; as well as networking technologies including TCP/IP, DNS, DHCP, VLANs, and VPNs. Additionally, I studied information security concepts such as encryption, firewalls, IDS/IPS, authentication, and authorization.",
-    logo: 'https://media.licdn.com/dms/image/v2/C4D0BAQG9HkMW5p01WA/company-logo_200_200/company-logo_200_200/0/1630487672555/uninove_logo?e=1763596800&v=beta&t=jzgQ357igZujjebm-SZB_VURPnwZmUjoEmlIg63CHwg'
+    logo: 'src/assets/images/uninove.jpeg'
   }
 ]
 
