@@ -93,7 +93,7 @@ export function Experience() {
                   <div className="company-logo">
                     <img 
                       src={company.logo} 
-                      alt={`${company.name} Logo`} 
+                      alt={`${company.name} company logo`} 
                     />
                   </div>
                   <div>
