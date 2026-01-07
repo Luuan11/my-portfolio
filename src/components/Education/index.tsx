@@ -97,7 +97,7 @@ export function Education() {
                 <div className="academic-header">
                   <div className="academic-info-left">
                     <div className="institution-logo">
-                      <img src={edu.logo} alt={edu.institution} />
+                      <img src={edu.logo} alt={`${edu.institution} logo`} />
                     </div>
                     <div className="academic-info">
                       <h4 className="institution-name">{edu.institution}</h4>
@@ -156,7 +156,7 @@ export function Education() {
               >
                 <div className="certification-header">
                   <div className="cert-logo">
-                    <img src={cert.logo} alt={cert.issuer} />
+                    <img src={cert.logo} alt={`${cert.issuer} certification logo`} />
                   </div>
                   <div className="cert-badge">
                     <FaCertificate />

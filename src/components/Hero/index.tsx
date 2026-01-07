@@ -42,7 +42,7 @@ export function Hero() {
           <div className="image-wrapper">
             <img 
               src="https://github.com/Luuan11.png" 
-              alt="Luan Fernando"
+              alt="Portrait photo of Luan Fernando, Software Developer"
               className="profile-image"
             />
             <div className="image-glow"></div>
