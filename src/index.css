@@ -6,6 +6,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 :root {
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -29,6 +40,7 @@
   --nav-bg: rgba(10, 10, 10, 0.8);
   --nav-border: rgba(255, 255, 255, 0.1);
   --purple-primary: #a78bfa;
+  --purple-dark: #8b5cf6;
   --purple-light: #c4b5fd;
 }
 
@@ -47,6 +59,7 @@
   --nav-bg: rgba(255, 255, 255, 0.8);
   --nav-border: rgba(0, 0, 0, 0.1);
   --purple-primary: #8b5cf6;
+  --purple-dark: #7c3aed;
   --purple-light: #a78bfa;
 }
 
