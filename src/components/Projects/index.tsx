@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import '../../styles/animations.css'
 import './styles.css'
@@ -48,29 +48,29 @@ const projects: Project[] = [
 const useProjectCarousel = (totalItems: number): CarouselControls => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
+  const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  const startAnimation = useCallback(() => {
+  const goToIndex = useCallback((newIndex: number) => {
+    if (isAnimating) return
     setIsAnimating(true)
-    setTimeout(() => setIsAnimating(false), 500)
-  }, [])
+    setTimeout(() => {
+      setCurrentIndex(newIndex)
+      setTimeout(() => setIsAnimating(false), 50)
+    }, 250)
+  }, [isAnimating])
 
   const handleNext = useCallback(() => {
-    if (isAnimating) return
-    startAnimation()
-    setCurrentIndex((prev) => (prev + 1) % totalItems)
-  }, [isAnimating, totalItems, startAnimation])
+    goToIndex((currentIndex + 1) % totalItems)
+  }, [currentIndex, totalItems, goToIndex])
 
   const handlePrev = useCallback(() => {
-    if (isAnimating) return
-    startAnimation()
-    setCurrentIndex((prev) => (prev - 1 + totalItems) % totalItems)
-  }, [isAnimating, totalItems, startAnimation])
+    goToIndex((currentIndex - 1 + totalItems) % totalItems)
+  }, [currentIndex, totalItems, goToIndex])
 
   const handleDotClick = useCallback((index: number) => {
-    if (isAnimating || index === currentIndex) return
-    startAnimation()
-    setCurrentIndex(index)
-  }, [isAnimating, currentIndex, startAnimation])
+    if (index === currentIndex) return
+    goToIndex(index)
+  }, [currentIndex, goToIndex])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -86,12 +86,24 @@ const useProjectCarousel = (totalItems: number): CarouselControls => {
   }, [handleNext, handlePrev])
 
   useEffect(() => {
-    const autoPlayInterval = setInterval(() => {
-      handleNext()
-    }, 5000)
+    const startAutoPlay = () => {
+      autoPlayRef.current = setInterval(() => {
+        setIsAnimating(prev => {
+          if (prev) return prev
+          setTimeout(() => {
+            setCurrentIndex(i => (i + 1) % totalItems)
+            setTimeout(() => setIsAnimating(false), 50)
+          }, 250)
+          return true
+        })
+      }, 5000)
+    }
 
-    return () => clearInterval(autoPlayInterval)
-  }, [handleNext])
+    startAutoPlay()
+    return () => {
+      if (autoPlayRef.current) clearInterval(autoPlayRef.current)
+    }
+  }, [totalItems])
 
   return {
     currentIndex,
@@ -122,12 +134,18 @@ export function Projects() {
           aria-atomic="true"
           aria-label={`Project carousel showing ${currentProject.title}`}
         >
-          <div className={`project-display ${isAnimating ? 'animating' : ''}`}>
+          <div 
+            id={`project-${currentIndex}`}
+            className={`project-display ${isAnimating ? 'animating' : ''}`}
+          >
             <div className="project-image-section">
               <img 
                 src={currentProject.image} 
                 alt={`Screenshot of ${currentProject.title} project`}
-                className="showcase-image" 
+                className="showcase-image"
+                loading="lazy"
+                width="600"
+                height="400"
               />
             </div>
 

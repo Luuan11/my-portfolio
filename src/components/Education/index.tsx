@@ -97,11 +97,11 @@ export function Education() {
                 <div className="academic-header">
                   <div className="academic-info-left">
                     <div className="institution-logo">
-                      <img src={edu.logo} alt={`${edu.institution} logo`} />
+                      <img src={edu.logo} alt={`${edu.institution} logo`} loading="lazy" width="60" height="60" />
                     </div>
                     <div className="academic-info">
-                      <h4 className="institution-name">{edu.institution}</h4>
-                      <h3 className="degree-name">{edu.degree}</h3>
+                      <h3 className="institution-name">{edu.institution}</h3>
+                      <h4 className="degree-name">{edu.degree}</h4>
                     </div>
                   </div>
                   <div className="academic-meta">
@@ -156,7 +156,7 @@ export function Education() {
               >
                 <div className="certification-header">
                   <div className="cert-logo">
-                    <img src={cert.logo} alt={`${cert.issuer} certification logo`} />
+                    <img src={cert.logo} alt={`${cert.issuer} certification logo`} loading="lazy" width="60" height="60" />
                   </div>
                   <div className="cert-badge">
                     <FaCertificate />

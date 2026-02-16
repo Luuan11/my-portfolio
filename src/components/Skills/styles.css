@@ -85,7 +85,7 @@
 }
 
 .skill-card.highlighted:hover {
-  background: var(--purple-light);
+  background: var(--purple-primary);
   box-shadow: 0 12px 32px rgba(167, 139, 250, 0.4);
 }
 

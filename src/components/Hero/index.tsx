@@ -44,6 +44,9 @@ export function Hero() {
               src="https://github.com/Luuan11.png" 
               alt="Portrait photo of Luan Fernando, Software Developer"
               className="profile-image"
+              fetchPriority="high"
+              width="400"
+              height="400"
             />
             <div className="image-glow"></div>
           </div>
