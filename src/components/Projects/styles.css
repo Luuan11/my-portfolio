@@ -100,7 +100,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   border: 1px solid rgba(167, 139, 250, 0.2);
-  transition: all 0.3s;
+  transition: all 0.3s ease;
 }
 
 .tech-tag:hover {

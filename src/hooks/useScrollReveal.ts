@@ -29,7 +29,7 @@ export function useScrollReveal(options = {}) {
         observer.unobserve(element)
       }
     }
-  }, [options])
+  }, [])
 
   return { elementRef, isVisible }
 }

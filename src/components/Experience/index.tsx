@@ -93,12 +93,15 @@ export function Experience() {
                   <div className="company-logo">
                     <img 
                       src={company.logo} 
-                      alt={`${company.name} company logo`} 
+                      alt={`${company.name} company logo`}
+                      loading="lazy"
+                      width="60"
+                      height="60"
                     />
                   </div>
                   <div>
-                    <h4 className="company-name">{company.name}</h4>
-                    <h3 className="card-title">{company.position}</h3>
+                    <h3 className="company-name">{company.name}</h3>
+                    <h4 className="card-title">{company.position}</h4>
                   </div>
                 </div>
                 <div className="card-meta">
@@ -115,7 +118,7 @@ export function Experience() {
                       <div className="timeline-content">
                         <div className="timeline-header">
                           <div className="timeline-title-wrapper">
-                            <h4 className="timeline-team">{exp.team}</h4>
+                            <h5 className="timeline-team">{exp.team}</h5>
                             {'promoted' in exp && exp.promoted && (
                               <span className="promoted-badge">
                                 <svg 

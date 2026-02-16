@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import './assets/fonts/fonts.css';
 
 * {
   margin: 0;
@@ -29,7 +29,7 @@ html {
   --bg-primary: #0a0a0a;
   --bg-secondary: #111111;
   --text-primary: #ffffff;
-  --text-secondary: #999999;
+  --text-secondary: #b3b3b3;
   --border-color: #1a1a1a;
   --modal-bg: #1a1a1a;
   --modal-border: #2a2a2a;

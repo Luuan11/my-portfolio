@@ -84,6 +84,6 @@ Feel free to reach out to me:
 
 - **GitHub**: [@Luuan11](https://github.com/Luuan11)
 - **LinkedIn**: [Luan Fernando](https://www.linkedin.com/in/luan-fernando/)
-- **Email**: luanfernando118@gmail.com
+- **Email**: luanfernandochaves@gmail.com
 
 Made with 💜 by [Luan Fernando](https://www.linkedin.com/in/luan-fernando/).
