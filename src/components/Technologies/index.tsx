@@ -1,6 +1,6 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal'
-import { FaReact, FaNodeJs, FaDocker, FaGitAlt, FaJava, FaGithub, FaAws, FaJenkins } from 'react-icons/fa'
-import { SiJavascript, SiTypescript, SiGo, SiMysql, SiMongodb, SiPostgresql, SiPostman, SiGrafana, SiDatadog, SiJest } from 'react-icons/si'
+import { FaReact, FaNodeJs, FaDocker, FaGitAlt, FaJava, FaGithub, FaAws, FaJenkins, FaPython } from 'react-icons/fa'
+import { SiJavascript, SiTypescript, SiGo, SiMysql, SiMongodb, SiPostgresql, SiPostman, SiGrafana, SiDatadog } from 'react-icons/si'
 import { VscVscode } from "react-icons/vsc";
 
 import '../../styles/animations.css'
@@ -10,6 +10,7 @@ const technologies = [
   { name: 'React', icon: FaReact, color: '#61DAFB', highlight: false },
   { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E', highlight: false },
   { name: 'TypeScript', icon: SiTypescript, color: '#3178C6', highlight: false },
+  { name: 'Python', icon: FaPython, color: '#3776AB', highlight: false },
   { name: 'Golang', icon: SiGo, color: '#00ADD8', highlight: true },
   { name: 'Node.js', icon: FaNodeJs, color: '#339933', highlight: false },
   { name: 'Java', icon: FaJava, color: '#E22A2A', highlight: false },
@@ -25,7 +26,6 @@ const technologies = [
   { name: 'Grafana', icon: SiGrafana, color: '#F46800', highlight: false },
   { name: 'Datadog', icon: SiDatadog, color: '#632CA6', highlight: false },
   { name: 'Jenkins', icon: FaJenkins, color: '#D24939', highlight: false },
-  { name: 'Jest', icon: SiJest, color: '#C21325', highlight: false },
 ]
 
 export function Technologies() {
