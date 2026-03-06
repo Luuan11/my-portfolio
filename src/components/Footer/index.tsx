@@ -4,6 +4,7 @@ import './styles.css'
 
 export function Footer() {
   const { elementRef: footerRef, isVisible: footerVisible } = useScrollReveal()
+  const currentYear = new Date().getFullYear()
 
   return (
     <footer className="footer">
@@ -11,7 +12,7 @@ export function Footer() {
         ref={footerRef as React.RefObject<HTMLDivElement>}
         className={`footer-container scroll-reveal ${footerVisible ? 'is-visible' : ''}`}
       >
-        <p className="footer-text">Follow me !</p>
+        <p className="footer-text">Contact me</p>
         <div className="footer-social">
           <a href="https://github.com/Luuan11" target="_blank" rel="noopener noreferrer" className="footer-social-link" title="GitHub">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -29,7 +30,7 @@ export function Footer() {
             </svg>
           </a>
         </div>
-        <p className="footer-copyright">luuan11 © 2025</p>
+        <p className="footer-copyright">© {currentYear} Luan Fernando</p>
       </div>
     </footer>
   )
