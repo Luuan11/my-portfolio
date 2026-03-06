@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { SettingsModal } from '../SettingsModal'
 import './styles.css'
 
 export function Navigation() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
@@ -13,11 +16,33 @@ export function Navigation() {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault()
     closeMobileMenu()
-    const target = document.querySelector(targetId)
-    if (target) {
-      const navHeight = 80
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' })
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => {
+        const target = document.querySelector(targetId)
+        if (target) {
+          const navHeight = 80
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      const target = document.querySelector(targetId)
+      if (target) {
+        const navHeight = 80
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' })
+      }
+    }
+  }
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    closeMobileMenu()
+    if (location.pathname !== '/') {
+      navigate('/')
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
@@ -25,7 +50,7 @@ export function Navigation() {
     <>
       <nav className="navigation">
         <div className="nav-container">
-          <a href="#" className="nav-logo">luuan11</a>
+          <a href="#" className="nav-logo" onClick={handleLogoClick}>luuan11</a>
 
           <button
             className="hamburger"
