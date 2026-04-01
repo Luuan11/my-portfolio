@@ -1,39 +1,17 @@
-import { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useLocation, useNavigate, Link } from 'react-router-dom'
 import { SettingsModal } from '../SettingsModal'
 import './styles.css'
 
 export function Navigation() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
   const location = useLocation()
   const navigate = useNavigate()
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
-  }
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault()
-    closeMobileMenu()
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        const target = document.querySelector(targetId)
-        if (target) {
-          const navHeight = 80
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight
-          window.scrollTo({ top: targetPosition, behavior: 'smooth' })
-        }
-      }, 100)
-    } else {
-      const target = document.querySelector(targetId)
-      if (target) {
-        const navHeight = 80
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' })
-      }
-    }
   }
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -45,6 +23,38 @@ export function Navigation() {
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
+
+  useEffect(() => {
+    if (location.pathname === '/experience') {
+      setActiveSection('experience')
+      return
+    }
+    if (location.pathname === '/projects') {
+      setActiveSection('projects')
+      return
+    }
+    if (location.pathname === '/education') {
+      setActiveSection('education')
+      return
+    }
+    if (location.pathname !== '/') {
+      setActiveSection('')
+      return
+    }
+
+    const handleScroll = () => {
+      if (window.scrollY < 100) {
+        setActiveSection('home')
+      }
+    }
+
+    handleScroll()
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [location.pathname])
 
   return (
     <>
@@ -72,9 +82,10 @@ export function Navigation() {
           
           <div className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
             <div className="nav-links">
-              <a href="#experience" className="nav-link" onClick={(e) => handleNavClick(e, '#experience')}>experience</a>
-              <a href="#projects" className="nav-link" onClick={(e) => handleNavClick(e, '#projects')}>projects</a>
-              <a href="#education" className="nav-link" onClick={(e) => handleNavClick(e, '#education')}>education</a>
+              <Link to="/" className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} onClick={closeMobileMenu}>home</Link>
+              <Link to="/experience" className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`} onClick={closeMobileMenu}>experience</Link>
+              <Link to="/projects" className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} onClick={closeMobileMenu}>projects</Link>
+              <Link to="/education" className={`nav-link ${activeSection === 'education' ? 'active' : ''}`} onClick={closeMobileMenu}>education</Link>
             </div>
           
             <div className="nav-right">
