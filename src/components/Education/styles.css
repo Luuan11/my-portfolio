@@ -23,9 +23,9 @@
   letter-spacing: 0.5px;
   transition: color 0.3s;
   padding-bottom: 1rem;
-  border-bottom: 3px solid var(--purple-primary);
   display: inline-block;
   width: fit-content;
+  position: relative;
 }
 
 .education-description {

@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaGraduationCap, FaMedal, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import { PiCertificate } from 'react-icons/pi'
+import { LuGraduationCap } from 'react-icons/lu'
 import { MdOutlineLocationOn, MdOutlineCalendarMonth } from 'react-icons/md'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 import './styles.css'
 
 const academicEducation = [
@@ -37,6 +40,7 @@ const certifications = [
 export function Education() {
   const [showAllAcademic, setShowAllAcademic] = useState(false)
   const [showAllCerts, setShowAllCerts] = useState(false)
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal()
 
   const displayedAcademic = showAllAcademic ? academicEducation : academicEducation.slice(0, 1)
   const displayedCerts = showAllCerts ? certifications : certifications.slice(0, 1)
@@ -45,7 +49,8 @@ export function Education() {
     <section className="education" id="education">
       <div className="education-container">
         <motion.h2
-          className="education-title"
+          ref={titleRef as React.RefObject<HTMLHeadingElement>}
+          className={`education-title title-underline ${titleVisible ? 'is-visible' : ''}`}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px 0px' }}
@@ -73,7 +78,7 @@ export function Education() {
             viewport={{ once: true, margin: '-100px 0px' }}
             transition={{ duration: 0.5 }}
           >
-            <FaGraduationCap className="section-icon" />
+            <LuGraduationCap className="section-icon" />
             <h3 className="section-title">Academic Education</h3>
           </motion.div>
 
@@ -162,7 +167,7 @@ export function Education() {
             viewport={{ once: true, margin: '-100px 0px' }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <FaMedal className="section-icon" />
+            <PiCertificate className="section-icon" />
             <h3 className="section-title">Certifications</h3>
           </motion.div>
 
