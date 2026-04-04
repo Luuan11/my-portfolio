@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { MdOutlineLocationOn, MdOutlineCalendarMonth } from 'react-icons/md'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 import '../../styles/animations.css'
 import './styles.css'
 
@@ -44,13 +45,19 @@ const companies = [
 
 export function Experience() {
   const [showAll, setShowAll] = useState(false)
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal()
 
   const displayedCompanies = showAll ? companies : [companies[0]]
 
   return (
     <section className="experience" id="experience">
       <div className="experience-container">
-        <h2 className="experience-title">Experiences</h2>
+        <h2 
+          ref={titleRef as React.RefObject<HTMLHeadingElement>}
+          className={`experience-title title-underline ${titleVisible ? 'is-visible' : ''}`}
+        >
+          Experiences
+        </h2>
         <p className="experience-description">
           My professional journey in software development and IT management, where I've contributed to building scalable solutions and supporting technical infrastructure across diverse environments.
         </p>
