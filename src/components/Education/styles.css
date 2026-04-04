@@ -172,8 +172,8 @@
 .academic-body {
   display: flex;
   flex-direction: column;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
+  margin-top: 0;
+  padding-top: 0.75rem;
   border-top: 1px solid var(--border-color);
 }
 
@@ -305,6 +305,13 @@
   color: var(--text-secondary);
   margin-bottom: 1rem;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cert-date .calendar-icon {
+  font-size: 0.9em;
 }
 
 .cert-skills {

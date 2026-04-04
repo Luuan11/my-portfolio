@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaGraduationCap, FaCertificate, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaGraduationCap, FaMedal, FaExternalLinkAlt } from 'react-icons/fa'
 import { MdOutlineLocationOn, MdOutlineCalendarMonth } from 'react-icons/md'
 import './styles.css'
 
@@ -162,7 +162,7 @@ export function Education() {
             viewport={{ once: true, margin: '-100px 0px' }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <FaCertificate className="section-icon" />
+            <FaMedal className="section-icon" />
             <h3 className="section-title">Certifications</h3>
           </motion.div>
 
@@ -181,7 +181,7 @@ export function Education() {
                     <div className="certification-content">
                       <h4 className="cert-name">{cert.name}</h4>
                       <p className="cert-issuer">{cert.issuer}</p>
-                      <p className="cert-date">{cert.date}</p>
+                      <p className="cert-date"><MdOutlineCalendarMonth className="calendar-icon" />{cert.date}</p>
 
                       {cert.skills && (
                         <div className="cert-skills">
