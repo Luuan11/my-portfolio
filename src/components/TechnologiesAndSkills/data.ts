@@ -34,7 +34,7 @@ export const technologies: Technology[] = [
   { name: 'AWS', icon: FaAws, color: '#FF9900', highlight: false },
   { name: 'Docker', icon: FaDocker, color: '#2496ED', highlight: false },
   { name: 'Git', icon: FaGitAlt, color: '#F05032', highlight: false },
-  { name: 'GitHub', icon: FaGithub, color: '#ffffff', highlight: false },
+  { name: 'GitHub', icon: FaGithub, color: '#6366f1', highlight: false },
   { name: 'VS Code', icon: VscVscode, color: '#007ACC', highlight: false },
   { name: 'Postman', icon: SiPostman, color: '#FF6C37', highlight: false },
   { name: 'Grafana', icon: SiGrafana, color: '#F46800', highlight: false },

@@ -93,62 +93,48 @@
 /* New Carousel Component Styles */
 .tech-carousel-wrapper {
   margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
   position: relative;
+  width: 100%;
 }
 
 .tech-carousel {
   display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  padding: 1rem 0;
-  flex: 1;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(167, 139, 250, 0.3) transparent;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
-.tech-carousel::-webkit-scrollbar {
-  height: 6px;
-}
-
-.tech-carousel::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.tech-carousel::-webkit-scrollbar-thumb {
-  background: rgba(167, 139, 250, 0.3);
-  border-radius: 3px;
-}
-
-.tech-carousel::-webkit-scrollbar-thumb:hover {
-  background: rgba(167, 139, 250, 0.5);
-}
-
-.carousel-nav {
-  background: none;
-  border: none;
-  color: var(--text-secondary);
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
+.carousel-track {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
+  gap: 1.5rem;
+  animation: scroll-carousel 30s linear infinite;
+  padding: 1rem 0;
+  will-change: transform;
 }
 
-.carousel-nav:hover {
-  background: rgba(167, 139, 250, 0.1);
-  color: var(--purple-primary);
-  transform: scale(1.1);
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-200px * 19 - 1.5rem * 19));
+  }
 }
 
 .tech-card {
@@ -184,12 +170,30 @@
 }
 
 .tech-icon {
-  font-size: var(--fs-icon);
+  font-size: 3rem;
   transition: transform 0.3s ease;
 }
 
 .tech-card:hover .tech-icon {
   transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+  .tech-icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-icon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-icon {
+    font-size: 1.75rem;
+  }
 }
 
 .tech-name {
