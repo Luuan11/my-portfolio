@@ -25,6 +25,31 @@
   transition-delay: 0.4s;
 }
 
+/* Underline animation for titles */
+@keyframes underlineReveal {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.title-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: var(--purple-primary);
+  width: 0;
+  transition: width 0.6s ease-out;
+}
+
+.title-underline.is-visible::after {
+  animation: underlineReveal 0.6s ease-out forwards;
+}
+
 /* Typography Styles */
 .section-title {
   font-size: var(--fs-h2);

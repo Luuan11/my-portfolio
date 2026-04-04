@@ -17,7 +17,7 @@ export function TechnologiesAndSkills() {
           ref={techRef as React.RefObject<HTMLDivElement>}
           className={`technologies-container scroll-reveal ${techVisible ? 'is-visible' : ''}`}
         >
-          <h2 className="technologies-title">Technologies & Skills</h2>
+          <h2 className={`technologies-title title-underline ${techVisible ? 'is-visible' : ''}`}>Technologies & Skills</h2>
           <p className="technologies-description">
             My technical stack encompasses modern frameworks, programming languages, and tools that enable me to build robust, scalable applications across full-stack development.
           </p>
