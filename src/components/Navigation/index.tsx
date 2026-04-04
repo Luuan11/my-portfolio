@@ -1,18 +1,20 @@
 import { useState } from 'react'
 import { useActiveSection } from '../../hooks/useActiveSection'
+import { useTranslation } from '../../hooks/useTranslation'
 import { SettingsModal } from '../SettingsModal'
 import { SCROLL_CONFIG } from '../../constants/config'
 import './styles.css'
 
 const NAV_LINKS = [
-  { id: 'home', label: 'home' },
-  { id: 'skills', label: 'skills' },
-  { id: 'projects', label: 'projects' },
-  { id: 'experience', label: 'experience' },
-  { id: 'education', label: 'education' },
+  { id: 'home', labelKey: 'nav.home' },
+  { id: 'skills', labelKey: 'nav.skills' },
+  { id: 'projects', labelKey: 'nav.projects' },
+  { id: 'experience', labelKey: 'nav.experience' },
+  { id: 'education', labelKey: 'nav.education' },
 ] as const
 
 export function Navigation() {
+  const { t } = useTranslation()
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const activeSection = useActiveSection()
@@ -61,13 +63,13 @@ export function Navigation() {
           
           <div className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
             <div className="nav-links">
-              {NAV_LINKS.map(({ id, label }) => (
+              {NAV_LINKS.map(({ id, labelKey }) => (
                 <button
                   key={id}
                   className={`nav-link ${activeSection === id ? 'active' : ''}`}
                   onClick={() => handleNavClick(id)}
                 >
-                  {label}
+                  {t(labelKey)}
                 </button>
               ))}
             </div>

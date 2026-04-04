@@ -1,0 +1,134 @@
+{
+  "nav": {
+    "home": "home",
+    "skills": "skills",
+    "projects": "projects",
+    "experience": "experience",
+    "education": "education"
+  },
+  "hero": {
+    "title": "Hi, I'm Luan Fernando",
+    "subtitle": "Software Developer",
+    "description": "I'm a passionate software developer with expertise in building modern web applications. My journey in tech has been driven by curiosity and a constant desire to learn and improve. Specialized in frontend technologies with deep knowledge of React, TypeScript, and responsive design."
+  },
+  "about": {
+    "title": "About Me",
+    "sections": {
+      "whoIAm": "Who I Am",
+      "whoIAmText": "I'm a passionate software developer with expertise in building modern web applications. My journey in tech has been driven by curiosity and a constant desire to learn and improve. Specialized in frontend technologies with deep knowledge of React, TypeScript, and responsive design.",
+      "experience": "Experience & Expertise",
+      "experienceText": "With experience in both frontend and backend development, I enjoy creating solutions that make a real impact. I believe in writing clean, maintainable code and following best practices to deliver high-quality software. Proficient in component architecture, state management, and UI/UX optimization.",
+      "learning": "Continuous Learning",
+      "learningText": "When I'm not coding, I'm exploring new technologies, contributing to open source, or sharing knowledge with the developer community. Always seeking to improve skills and stay updated with industry trends and best practices."
+    }
+  },
+  "experience": {
+    "title": "Experiences",
+    "description": "My professional journey in software development and IT management, where I've contributed to building scalable solutions and supporting technical infrastructure across diverse environments.",
+    "current": "Current",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "companies": {
+      "mercadoLibre": {
+        "name": "Mercado Libre",
+        "position": "Software Developer",
+        "location": "Brazil",
+        "softwareDeveloper": "As a Software Developer, I worked on resolving legacy issues in large-scale applications with high responsibility for CX within the Mercado Libre ecosystem, spanning multiple countries across Latin America. I was responsible for integrating social media platforms — including Twitter/X, Facebook, and Instagram — by developing a unified online communication system that expanded support channels and strengthened the bridge between users and representatives, resulting in faster response times and more personalized customer experiences. I also developed an integration with Twilio for telephony services, enabling automatic call transcription and using that data as intelligent context for the next representative in case of call transfers. This solution led to a 9% reduction in Average Handling Time (AHT), significantly improving service efficiency. Currently, I am focused on the development of MCPs and autonomous agents integrated with Verdi, applying LLMs for automated interpretation and resolution of support requests."
+      },
+      "cotecna": {
+        "name": "Cotecna Inspection",
+        "position": "IT Analyst",
+        "location": "Brazil",
+        "analyst": "I worked as an Analyst responsible for IT at Cotecna Level Brazil, managing technical support requests, providing devices to employees, overseeing and controlling the IT budget in Brazil, and coordinating multiple external IT teams. I was also involved in strategic decision-making for IT and the development of web applications.",
+        "intern": "I worked as an IT intern at Cotecna Level Brazil, assisting employees with technical issues, managing company equipment to ensure proper use, and supporting the financial management of IT operations in Brazil."
+      }
+    }
+  },
+  "education": {
+    "title": "Education",
+    "description": "My academic background and complementary courses that contributed to my professional development and technical enhancement in the development field.",
+    "academic": "Academic Education",
+    "certifications": "Certifications",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "viewCredential": "View Credential",
+    "institutions": {
+      "fullCycle": {
+        "name": "Full Cycle",
+        "degree": "Postgraduate Degree in Go Expert",
+        "location": "Brazil",
+        "description": "During my postgraduate studies in Full Cycle Go Expert, I deepened my knowledge in advanced and scalable development with Go, covering topics such as fundamentals of the language and standard packages, context management and scope control, database integration using SQLC, project packaging and modularization, unit, integration, and benchmark testing, and the development of REST, GraphQL, and gRPC APIs. The program also included concurrency with goroutines and channels, event handling and asynchronous processing, private modules and dependency management, file uploads to AWS S3, CLI creation with Cobra, application of Unit of Work and Dependency Injection patterns, implementation of Clean Architecture principles, and deployment with Docker and Kubernetes."
+      },
+      "uninove": {
+        "name": "Uninove Nove de Julho",
+        "degree": "Bachelor's Degree in Information Systems",
+        "location": "Brazil",
+        "description": "During my Bachelor's degree in Information Systems, I gained experience with a wide range of technologies and tools used in software development and IT management. Some of the main technologies I learned include programming languages such as Java, Python, C#, PHP, and JavaScript; databases like MySQL, Oracle, SQL Server, PostgreSQL, and MongoDB; and development frameworks such as Spring, Hibernate, AngularJS, React, and Vue.js. I also acquired knowledge of operating systems including Windows, Linux, and macOS."
+      }
+    }
+  },
+  "skills": {
+    "title": "Technologies",
+    "description": "My technical stack encompasses modern frameworks, programming languages, and tools that enable me to build robust, scalable applications across full-stack development.",
+    "skillsSection": "Skills",
+    "cards": {
+      "frontend": {
+        "title": "Front-end Development",
+        "description": "Expert in React, TypeScript, JavaScript, building modern and responsive interfaces"
+      },
+      "backend": {
+        "title": "Back-end Development",
+        "description": "Proficient in Golang, Java, creating robust and scalable APIs"
+      },
+      "database": {
+        "title": "Database Management",
+        "description": "Experience with MySQL, MongoDB, PostgreSQL for efficient data solutions"
+      },
+      "versionControl": {
+        "title": "Version Control",
+        "description": "Git expert for versioning, collaboration and CI/CD workflows"
+      },
+      "devops": {
+        "title": "DevOps & Containers",
+        "description": "Docker and Kubernetes for containerization and orchestration of applications"
+      },
+      "testing": {
+        "title": "Testing & Quality",
+        "description": "Automated testing with JUnit, Jest, ensuring code reliability"
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "A showcase of my portfolio projects featuring modern architectures, clean code practices, and cutting-edge technologies that demonstrate my expertise in full-stack development.",
+    "viewProject": "View Project",
+    "code": "Code",
+    "items": {
+      "cleanArchGo": {
+        "title": "clean-architecture-go",
+        "description": "Clean architecture order management with golang. Features advanced patterns and best practices for building scalable and maintainable applications."
+      },
+      "stressTest": {
+        "title": "Stress-test",
+        "description": "Command line tool that allows you to test the performance of APIs and web services by performing multiple simultaneous requests. Built for developers who need reliable performance testing."
+      },
+      "goMeteor": {
+        "title": "go-meteor",
+        "description": "Game App made with GO and Ebiten packet. An interactive gaming experience showcasing the power of Go for game development with smooth animations and responsive controls."
+      },
+      "discordPurple": {
+        "title": "Discord Purple",
+        "description": "A real-time chat application inspired by Discord. Users authenticate securely with GitHub OAuth, ensuring no one can impersonate another user. Send messages and stickers instantly, and see other users' messages in real-time. The app features a modern UI with a space-themed background, custom scrollbar, and GitHub profile integration."
+      }
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "appearance": "Appearance",
+    "appearanceDesc": "Choose your preferred theme",
+    "dark": "Dark",
+    "light": "Light",
+    "language": "Language",
+    "languageDesc": "Choose your preferred language"
+  }
+}
