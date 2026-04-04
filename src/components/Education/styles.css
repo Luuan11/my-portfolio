@@ -159,6 +159,14 @@
   color: var(--text-secondary);
   margin: 0;
   transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.calendar-icon,
+.location-icon {
+  font-size: 1.2em;
 }
 
 .academic-body {

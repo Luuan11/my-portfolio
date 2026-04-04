@@ -24,24 +24,32 @@ const projects: Project[] = [
   {
     title: 'clean-architecture-go',
     description: 'Clean architecture order management with golang. Features advanced patterns and best practices for building scalable and maintainable applications.',
-    image: 'https://github.com/user-attachments/assets/b2cf052e-9e03-44f9-9c6e-1ba5cfcf9a86',
+    image: '/images/projects/clean-arch.png',
     technologies: ['Golang', 'Clean Architecture', 'MySQL', 'GraphQL', 'gRPC', 'Docker'],
     githubUrl: 'https://github.com/Luuan11/clean-architecture-go',
   },
   {
     title: 'Stress-test',
     description: 'Command line tool that allows you to test the performance of APIs and web services by performing multiple simultaneous requests. Built for developers who need reliable performance testing.',
-    image: 'https://github.com/user-attachments/assets/9d2785b9-a7a9-467f-a1cc-770cd7bde652',
+    image: '/images/projects/stress-test.png',
     technologies: ['Golang', 'Docker'],
     githubUrl: 'https://github.com/Luuan11/stress-test-go',
   },
   {
     title: 'go-meteor',
     description: 'Game App made with GO and Ebiten packet. An interactive gaming experience showcasing the power of Go for game development with smooth animations and responsive controls.',
-    image: 'https://github.com/user-attachments/assets/452a33eb-706a-4f76-ab61-69aa30240440',
+    image: '/images/projects/go-meteor.png',
     technologies: ['Golang', 'Ebiten'],
     githubUrl: 'https://github.com/Luuan11/go-meteor',
     liveUrl: 'https://luuan11.github.io/go-meteor/',
+  },
+  {
+    title: 'Discord Purple',
+    description: 'A real-time chat application inspired by Discord. Users authenticate securely with GitHub OAuth, ensuring no one can impersonate another user. Send messages and stickers instantly, and see other users\' messages in real-time. The app features a modern UI with a space-themed background, custom scrollbar, and GitHub profile integration.',
+    image: '/images/projects/discord-purple.png',
+    technologies: ['Next.js', 'Firebase', 'SkyneXUI', 'GitHub OAuth', 'Vercel'],
+    githubUrl: 'https://github.com/Luuan11/discordpurple',
+    liveUrl: 'https://discordpurple.vercel.app/',
   }
 ]
 

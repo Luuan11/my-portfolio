@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaGraduationCap, FaCertificate, FaExternalLinkAlt } from 'react-icons/fa'
+import { MdOutlineLocationOn, MdOutlineCalendarMonth } from 'react-icons/md'
 import './styles.css'
 
 const academicEducation = [
@@ -104,8 +105,8 @@ export function Education() {
                       </div>
                     </div>
                     <div className="academic-meta">
-                      <p className="academic-period">{edu.period}</p>
-                      <p className="academic-location">{edu.location}</p>
+                      <p className="academic-period"><MdOutlineCalendarMonth className="calendar-icon" />{edu.period}</p>
+                      <p className="academic-location"><MdOutlineLocationOn className="location-icon" />{edu.location}</p>
                     </div>
                   </div>
 

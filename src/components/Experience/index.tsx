@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { MdOutlineLocationOn, MdOutlineCalendarMonth } from 'react-icons/md'
 import '../../styles/animations.css'
 import './styles.css'
 
@@ -83,8 +84,8 @@ export function Experience() {
                   {company.period.includes('Present') && (
                     <span className="current-badge">Current</span>
                   )}
-                  <p className="card-date">{company.period}</p>
-                  <p className="card-location">{company.location}</p>
+                  <p className="card-date"><MdOutlineCalendarMonth className="calendar-icon" />{company.period}</p>
+                  <p className="card-location"><MdOutlineLocationOn className="location-icon" />{company.location}</p>
                 </div>
               </div>
 
