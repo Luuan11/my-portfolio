@@ -1,6 +1,7 @@
 .hero {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: 6rem 0 4rem;
   background: var(--bg-primary);
@@ -15,6 +16,8 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  flex: 1;
+  width: 100%;
 }
 
 .hero-content {
@@ -24,7 +27,7 @@
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: var(--fs-h1);
   font-weight: 600;
   line-height: 1.2;
   color: var(--text-primary);
@@ -66,7 +69,7 @@
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: var(--fs-p);
   line-height: 1.8;
   color: var(--text-secondary);
   margin: 0;
@@ -95,7 +98,7 @@
 .btn {
   padding: 0.875rem 2rem;
   border-radius: 50px;
-  font-size: 0.95rem;
+  font-size: var(--fs-small);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
@@ -167,32 +170,39 @@
   transition: opacity 0.4s ease;
 }
 
+@media (max-width: 1024px) {
+  .hero-container {
+    gap: 2.5rem;
+    padding: 0 2.5rem;
+  }
+}
+
 @media (max-width: 968px) {
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     padding: 0 2rem;
   }
   
   .hero-title {
-    font-size: 2.5rem;
+    font-size: var(--fs-h1);
   }
   
   .typewriter-text {
-    font-size: 1.25rem;
+    font-size: var(--fs-h3);
   }
   
   .typewriter-cursor {
-    font-size: 1.25rem;
+    font-size: var(--fs-h3);
   }
   
   .hero-description {
-    font-size: 1rem;
+    font-size: var(--fs-p);
   }
   
   .image-wrapper {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
   }
   
   .hero-image {
@@ -200,25 +210,31 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .hero {
     padding: 5rem 0 3rem;
   }
   
   .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
     padding: 0 1.5rem;
   }
   
   .hero-title {
-    font-size: 2rem;
+    font-size: var(--fs-h2);
   }
   
   .typewriter-text {
-    font-size: 1.1rem;
+    font-size: var(--fs-h3);
   }
   
   .typewriter-cursor {
-    font-size: 1.1rem;
+    font-size: var(--fs-h3);
+  }
+  
+  .hero-description {
+    font-size: var(--fs-p);
   }
   
   .hero-buttons {
@@ -230,7 +246,73 @@
   }
   
   .image-wrapper {
-    width: 250px;
-    height: 250px;
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 4rem 0 2.5rem;
+  }
+  
+  .hero-container {
+    padding: 0 1rem;
+    gap: 1.5rem;
+  }
+  
+  .hero-title {
+    font-size: var(--fs-h3);
+  }
+  
+  .typewriter-text {
+    font-size: var(--fs-h3);
+  }
+  
+  .typewriter-cursor {
+    font-size: var(--fs-h3);
+  }
+  
+  .hero-description {
+    font-size: var(--fs-small);
+    line-height: 1.6;
+  }
+  
+  .image-wrapper {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 320px) {
+  .hero {
+    padding: 3.5rem 0 2rem;
+  }
+  
+  .hero-container {
+    padding: 0 0.75rem;
+    gap: 1.25rem;
+  }
+  
+  .hero-title {
+    font-size: var(--fs-lg);
+  }
+  
+  .typewriter-text {
+    font-size: var(--fs-md);
+  }
+  
+  .typewriter-cursor {
+    font-size: var(--fs-md);
+  }
+  
+  .hero-description {
+    font-size: var(--fs-small);
+    max-width: 100%;
+  }
+  
+  .image-wrapper {
+    width: 200px;
+    height: 200px;
   }
 }

@@ -49,28 +49,32 @@ const useProjectCarousel = (totalItems: number): CarouselControls => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAnimating, setIsAnimating] = useState(false)
   const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const transitionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const goToIndex = useCallback((newIndex: number) => {
-    if (isAnimating) return
+    setCurrentIndex(newIndex)
     setIsAnimating(true)
-    setTimeout(() => {
-      setCurrentIndex(newIndex)
-      setTimeout(() => setIsAnimating(false), 50)
+    if (transitionTimeoutRef.current) {
+      clearTimeout(transitionTimeoutRef.current)
+    }
+    transitionTimeoutRef.current = setTimeout(() => {
+      setIsAnimating(false)
     }, 250)
-  }, [isAnimating])
+  }, [])
 
   const handleNext = useCallback(() => {
-    goToIndex((currentIndex + 1) % totalItems)
-  }, [currentIndex, totalItems, goToIndex])
+    setCurrentIndex(prev => (prev + 1) % totalItems)
+  }, [totalItems])
 
   const handlePrev = useCallback(() => {
-    goToIndex((currentIndex - 1 + totalItems) % totalItems)
-  }, [currentIndex, totalItems, goToIndex])
+    setCurrentIndex(prev => (prev - 1 + totalItems) % totalItems)
+  }, [totalItems])
 
   const handleDotClick = useCallback((index: number) => {
-    if (index === currentIndex) return
-    goToIndex(index)
-  }, [currentIndex, goToIndex])
+    if (index !== currentIndex) {
+      setCurrentIndex(index)
+    }
+  }, [currentIndex])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -86,22 +90,13 @@ const useProjectCarousel = (totalItems: number): CarouselControls => {
   }, [handleNext, handlePrev])
 
   useEffect(() => {
-    const startAutoPlay = () => {
-      autoPlayRef.current = setInterval(() => {
-        setIsAnimating(prev => {
-          if (prev) return prev
-          setTimeout(() => {
-            setCurrentIndex(i => (i + 1) % totalItems)
-            setTimeout(() => setIsAnimating(false), 50)
-          }, 250)
-          return true
-        })
-      }, 5000)
-    }
+    autoPlayRef.current = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % totalItems)
+    }, 5000)
 
-    startAutoPlay()
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current)
+      if (transitionTimeoutRef.current) clearTimeout(transitionTimeoutRef.current)
     }
   }, [totalItems])
 
@@ -126,6 +121,9 @@ export function Projects() {
         <h2 id="projects-heading" className="projects-title">
           Projects
         </h2>
+        <p className="projects-description">
+          A showcase of my portfolio projects featuring modern architectures, clean code practices, and cutting-edge technologies that demonstrate my expertise in full-stack development.
+        </p>
 
         <div
           className="project-showcase"

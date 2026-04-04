@@ -1,5 +1,7 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useTypewriterLoop } from '../../hooks/useTypewriterLoop'
+import { ScrollHint } from '../ScrollHint'
+import { ANIMATION_CONFIG } from '../../constants/config'
 import '../../styles/animations.css'
 import './styles.css'
 
@@ -9,13 +11,13 @@ export function Hero() {
   const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal()
   const typewriterText = useTypewriterLoop(
     ['Software Developer', 'Backend Developer', 'Frontend Developer'],
-    100,
-    50,
-    2000
+    ANIMATION_CONFIG.TYPEWRITER_SPEED,
+    ANIMATION_CONFIG.TYPEWRITER_DELETE_SPEED,
+    ANIMATION_CONFIG.TYPEWRITER_PAUSE
   )
 
   return (
-    <section className="hero">
+    <section id="home" className="hero">
       <div className="hero-container">
         <div className="hero-content">
           <h1 
@@ -45,6 +47,8 @@ export function Hero() {
               alt="Portrait photo of Luan Fernando, Software Developer"
               className="profile-image"
               fetchPriority="high"
+              loading="eager"
+              decoding="async"
               width="400"
               height="400"
             />
@@ -52,6 +56,7 @@ export function Hero() {
           </div>
         </div>
       </div>
+      <ScrollHint targetId="about" />
     </section>
   )
 }

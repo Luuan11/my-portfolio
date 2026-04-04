@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import { FaUser, FaBriefcase, FaLightbulb } from 'react-icons/fa'
 import '../../styles/animations.css'
 import './styles.css'
 
@@ -13,26 +14,49 @@ export function About() {
       ref={sectionRef as React.RefObject<HTMLElement>}
     >
       <div className="about-container">
-        <h2 className={`section-title scroll-reveal ${sectionVisible ? 'is-visible' : ''}`}>
+        <h2 className={`about-title scroll-reveal ${sectionVisible ? 'is-visible' : ''}`}>
           About Me
         </h2>
         <div 
           ref={contentRef as React.RefObject<HTMLDivElement>}
           className={`about-content scroll-reveal scroll-reveal-delay-1 ${contentVisible ? 'is-visible' : ''}`}
         >
-          <p>
-            I'm a passionate software developer with expertise in building modern web applications. 
-            My journey in tech has been driven by curiosity and a constant desire to learn and improve.
-          </p>
-          <p>
-            With experience in both frontend and backend development, I enjoy creating solutions 
-            that make a real impact. I believe in writing clean, maintainable code and following 
-            best practices to deliver high-quality software.
-          </p>
-          <p>
-            When I'm not coding, I'm exploring new technologies, contributing to open source, 
-            or sharing knowledge with the developer community.
-          </p>
+          <div className="about-topic">
+            <h3 className="about-topic-title">
+              <FaUser className="topic-icon" />
+              Who I Am
+            </h3>
+            <p>
+              I'm a passionate software developer with expertise in building modern web applications. 
+              My journey in tech has been driven by curiosity and a constant desire to learn and improve. 
+              Specialized in frontend technologies with deep knowledge of React, TypeScript, and responsive design.
+            </p>
+          </div>
+
+          <div className="about-topic">
+            <h3 className="about-topic-title">
+              <FaBriefcase className="topic-icon" />
+              Experience & Expertise
+            </h3>
+            <p>
+              With experience in both frontend and backend development, I enjoy creating solutions 
+              that make a real impact. I believe in writing clean, maintainable code and following 
+              best practices to deliver high-quality software. Proficient in component architecture, 
+              state management, and UI/UX optimization.
+            </p>
+          </div>
+
+          <div className="about-topic">
+            <h3 className="about-topic-title">
+              <FaLightbulb className="topic-icon" />
+              Continuous Learning
+            </h3>
+            <p>
+              When I'm not coding, I'm exploring new technologies, contributing to open source, 
+              or sharing knowledge with the developer community. Always seeking to improve skills 
+              and stay updated with industry trends and best practices.
+            </p>
+          </div>
         </div>
       </div>
     </section>

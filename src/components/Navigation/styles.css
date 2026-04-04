@@ -22,7 +22,7 @@
 }
 
 .nav-logo {
-  font-size: 1rem;
+  font-size: var(--fs-p);
   font-weight: 600;
   color: var(--purple-primary);
   transition: all 0.3s;
@@ -102,22 +102,44 @@
 }
 
 .nav-link {
-  font-size: 0.9rem;
+  font-size: var(--fs-small);
   color: var(--text-secondary);
-  transition: all 0.3s;
+  transition: color 0.3s;
   font-weight: 400;
   padding: 0.5rem 0;
-  border-bottom: 2px solid transparent;
   position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-block;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--purple-primary);
+  transition: width 0.4s ease;
 }
 
 .nav-link:hover {
-  color: var(--purple-primary);
+  color: var(--text-primary);
+}
+
+.nav-link:hover::after {
+  width: 100%;
 }
 
 .nav-link.active {
-  color: var(--purple-primary);
-  border-bottom: 2px solid var(--purple-primary);
+  color: var(--text-primary);
+}
+
+.nav-link.active::after {
+  width: 100%;
 }
 
 .nav-right {
@@ -224,11 +246,15 @@
   }
 
   .nav-link {
-    font-size: 1rem;
+    font-size: var(--fs-p);
     width: 100%;
     padding: 1rem;
     text-align: left;
     border-radius: 8px;
+  }
+
+  .nav-link::after {
+    bottom: 0;
   }
 
   .nav-right {

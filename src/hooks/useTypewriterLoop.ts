@@ -1,13 +1,21 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
+import { ANIMATION_CONFIG } from '../constants/config'
 
-export function useTypewriterLoop(texts: string[], typingSpeed: number = 100, deletingSpeed: number = 50, pauseTime: number = 2000) {
+export function useTypewriterLoop(
+  texts: string[],
+  typingSpeed: number = ANIMATION_CONFIG.TYPEWRITER_SPEED,
+  deletingSpeed: number = ANIMATION_CONFIG.TYPEWRITER_DELETE_SPEED,
+  pauseTime: number = ANIMATION_CONFIG.TYPEWRITER_PAUSE
+) {
   const [displayText, setDisplayText] = useState('')
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
   const [isDeleting, setIsDeleting] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
 
+  const memoizedTexts = useMemo(() => texts, [texts])
+
   useEffect(() => {
-    const currentText = texts[currentTextIndex]
+    const currentText = memoizedTexts[currentTextIndex]
 
     if (isPaused) {
       const pauseTimeout = setTimeout(() => {
@@ -37,7 +45,7 @@ export function useTypewriterLoop(texts: string[], typingSpeed: number = 100, de
     }, isDeleting ? deletingSpeed : typingSpeed)
 
     return () => clearTimeout(timeout)
-  }, [displayText, isDeleting, isPaused, currentTextIndex, texts, typingSpeed, deletingSpeed, pauseTime])
+  }, [displayText, isDeleting, isPaused, currentTextIndex, memoizedTexts, typingSpeed, deletingSpeed, pauseTime])
 
   return displayText
 }

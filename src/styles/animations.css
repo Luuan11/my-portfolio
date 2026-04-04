@@ -24,3 +24,12 @@
 .scroll-reveal-delay-4 {
   transition-delay: 0.4s;
 }
+
+/* Typography Styles */
+.section-title {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  text-align: center;
+}

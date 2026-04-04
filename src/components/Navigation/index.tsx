@@ -1,14 +1,21 @@
-import { useState, useEffect } from 'react'
-import { useLocation, useNavigate, Link } from 'react-router-dom'
+import { useState } from 'react'
+import { useActiveSection } from '../../hooks/useActiveSection'
 import { SettingsModal } from '../SettingsModal'
+import { SCROLL_CONFIG } from '../../constants/config'
 import './styles.css'
+
+const NAV_LINKS = [
+  { id: 'home', label: 'home' },
+  { id: 'skills', label: 'skills' },
+  { id: 'projects', label: 'projects' },
+  { id: 'experience', label: 'experience' },
+  { id: 'education', label: 'education' },
+] as const
 
 export function Navigation() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('home')
-  const location = useLocation()
-  const navigate = useNavigate()
+  const activeSection = useActiveSection()
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
@@ -17,44 +24,16 @@ export function Navigation() {
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     closeMobileMenu()
-    if (location.pathname !== '/') {
-      navigate('/')
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
+    window.scrollTo({ top: 0, behavior: SCROLL_CONFIG.SCROLL_BEHAVIOR })
   }
 
-  useEffect(() => {
-    if (location.pathname === '/experience') {
-      setActiveSection('experience')
-      return
+  const handleNavClick = (sectionId: string) => {
+    closeMobileMenu()
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: SCROLL_CONFIG.SCROLL_BEHAVIOR })
     }
-    if (location.pathname === '/projects') {
-      setActiveSection('projects')
-      return
-    }
-    if (location.pathname === '/education') {
-      setActiveSection('education')
-      return
-    }
-    if (location.pathname !== '/') {
-      setActiveSection('')
-      return
-    }
-
-    const handleScroll = () => {
-      if (window.scrollY < 100) {
-        setActiveSection('home')
-      }
-    }
-
-    handleScroll()
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [location.pathname])
+  }
 
   return (
     <>
@@ -82,10 +61,15 @@ export function Navigation() {
           
           <div className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
             <div className="nav-links">
-              <Link to="/" className={`nav-link ${activeSection === 'home' ? 'active' : ''}`} onClick={closeMobileMenu}>home</Link>
-              <Link to="/experience" className={`nav-link ${activeSection === 'experience' ? 'active' : ''}`} onClick={closeMobileMenu}>experience</Link>
-              <Link to="/projects" className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} onClick={closeMobileMenu}>projects</Link>
-              <Link to="/education" className={`nav-link ${activeSection === 'education' ? 'active' : ''}`} onClick={closeMobileMenu}>education</Link>
+              {NAV_LINKS.map(({ id, label }) => (
+                <button
+                  key={id}
+                  className={`nav-link ${activeSection === id ? 'active' : ''}`}
+                  onClick={() => handleNavClick(id)}
+                >
+                  {label}
+                </button>
+              ))}
             </div>
           
             <div className="nav-right">

@@ -1,15 +1,15 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { FaGraduationCap, FaCertificate, FaExternalLinkAlt } from 'react-icons/fa'
-import '../../styles/animations.css'
 import './styles.css'
 
 const academicEducation = [
-   {
+  {
     institution: 'Full Cycle',
     degree: "Postgraduate Degree in Go Expert",
     period: '2024 - 2025',
     location: 'Brazil',
-    description: "During my postgraduate studies in Full Cycle Go Expert, I deepened my knowledge in advanced and scalable development with Go, covering topics such as fundamentals of the language and standard packages, context management and scope control, database integration using SQLC, project packaging and modularization, unit, integration, and benchmark testing, and the development of REST, GraphQL, and gRPC APIs. The program also included concurrency with goroutines and channels, event handling and asynchronous processing, private modules and dependency management, file uploads to AWS S3, CLI creation with Cobra, application of Unit of Work and Dependency Injection patterns, implementation of Clean Architecture principles, and deployment with Docker and Kubernetes. This course provided a comprehensive, hands-on education focused on building robust and efficient applications in Go.",
+    description: "During my postgraduate studies in Full Cycle Go Expert, I deepened my knowledge in advanced and scalable development with Go, covering topics such as fundamentals of the language and standard packages, context management and scope control, database integration using SQLC, project packaging and modularization, unit, integration, and benchmark testing, and the development of REST, GraphQL, and gRPC APIs. The program also included concurrency with goroutines and channels, event handling and asynchronous processing, private modules and dependency management, file uploads to AWS S3, CLI creation with Cobra, application of Unit of Work and Dependency Injection patterns, implementation of Clean Architecture principles, and deployment with Docker and Kubernetes.",
     logo: '/images/fullcycle.jpeg'
   },
   {
@@ -17,7 +17,7 @@ const academicEducation = [
     degree: "Bachelor's Degree in Information Systems",
     period: '2019 - 2023',
     location: 'Brazil',
-    description: "During my Bachelor's degree in Information Systems, I gained experience with a wide range of technologies and tools used in software development and IT management. Some of the main technologies I learned include programming languages such as Java, Python, C#, PHP, and JavaScript; databases like MySQL, Oracle, SQL Server, PostgreSQL, and MongoDB; and development frameworks such as Spring, Hibernate, AngularJS, React, and Vue.js. I also acquired knowledge of operating systems including Windows, Linux, and macOS; integrated development environments (IDEs) such as Eclipse, Visual Studio, PyCharm, and NetBeans; project management tools like JIRA, Trello, and Asana; as well as networking technologies including TCP/IP, DNS, DHCP, VLANs, and VPNs. Additionally, I studied information security concepts such as encryption, firewalls, IDS/IPS, authentication, and authorization.",
+    description: "During my Bachelor's degree in Information Systems, I gained experience with a wide range of technologies and tools used in software development and IT management. Some of the main technologies I learned include programming languages such as Java, Python, C#, PHP, and JavaScript; databases like MySQL, Oracle, SQL Server, PostgreSQL, and MongoDB; and development frameworks such as Spring, Hibernate, AngularJS, React, and Vue.js. I also acquired knowledge of operating systems including Windows, Linux, and macOS.",
     logo: '/images/uninove.jpeg'
   }
 ]
@@ -27,7 +27,6 @@ const certifications = [
     name: 'GitHub Foundations',
     issuer: 'GitHub',
     date: 'Mar 2025',
-    credentialId: '121b0d4e-a922-4073-9b72-fefae923a919',
     credentialUrl: 'https://www.credly.com/earner/earned/badge/121b0d4e-a922-4073-9b72-fefae923a919',
     logo: '/images/github-foundations.png',
     skills: ['Git', 'Github', 'GitHub Actions', 'CI/CD', 'Version Control']
@@ -35,163 +34,215 @@ const certifications = [
 ]
 
 export function Education() {
-  const [expandedCards, setExpandedCards] = useState<number[]>([])
-  const academicRefs = useRef<(HTMLDivElement | null)[]>([])
-  const certRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [showAllAcademic, setShowAllAcademic] = useState(false)
+  const [showAllCerts, setShowAllCerts] = useState(false)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px',
-      }
-    )
-
-    academicRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref)
-    })
-
-    certRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref)
-    })
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [])
-
-  const toggleCard = (index: number) => {
-    setExpandedCards(prev => 
-      prev.includes(index) 
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
-    )
-  }
+  const displayedAcademic = showAllAcademic ? academicEducation : academicEducation.slice(0, 1)
+  const displayedCerts = showAllCerts ? certifications : certifications.slice(0, 1)
 
   return (
     <section className="education" id="education">
       <div className="education-container">
-        <h2 className="education-title">Education</h2>
-        
+        <motion.h2
+          className="education-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px 0px' }}
+          transition={{ duration: 0.5 }}
+        >
+          Education
+        </motion.h2>
+
+        <motion.p
+          className="education-description"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-100px 0px' }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          My academic background and complementary courses that contributed to my professional development and technical enhancement in the development field.
+        </motion.p>
+
+        {/* Academic Education */}
         <div className="education-section">
-          <div className="section-header">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px 0px' }}
+            transition={{ duration: 0.5 }}
+          >
             <FaGraduationCap className="section-icon" />
             <h3 className="section-title">Academic Education</h3>
-          </div>
-          
-          <div className="academic-grid">
-            {academicEducation.map((edu, index) => (
-              <div 
-                key={index}
-                ref={(el) => (academicRefs.current[index] = el)}
-                className={`academic-card scroll-reveal scroll-reveal-delay-${index + 1}`}
-              >
-                <div className="academic-header">
-                  <div className="academic-info-left">
-                    <div className="institution-logo">
-                      <img src={edu.logo} alt={`${edu.institution} logo`} loading="lazy" width="60" height="60" />
-                    </div>
-                    <div className="academic-info">
-                      <h3 className="institution-name">{edu.institution}</h3>
-                      <h4 className="degree-name">{edu.degree}</h4>
-                    </div>
-                  </div>
-                  <div className="academic-meta">
-                    <p className="academic-period">{edu.period}</p>
-                    <p className="academic-location">{edu.location}</p>
-                  </div>
-                </div>
-                
-                <div className={`academic-body ${expandedCards.includes(index) ? 'expanded' : ''}`}>
-                  <p className="academic-description">{edu.description}</p>
-                </div>
+          </motion.div>
 
-                <button 
-                  className="expand-button"
-                  onClick={() => toggleCard(index)}
-                  aria-label={expandedCards.includes(index) ? `Collapse ${edu.institution} education details` : `Expand ${edu.institution} education details`}
-                  aria-expanded={expandedCards.includes(index)}
-                  tabIndex={0}
+          <div className="academic-grid">
+            <AnimatePresence>
+              {displayedAcademic.map((edu, index) => (
+                <motion.div
+                  key={index}
+                  className="academic-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 30 }}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.15 }}
                 >
-                  <svg 
-                    className={`expand-icon ${expandedCards.includes(index) ? 'expanded' : ''}`}
-                    width="24" 
-                    height="24" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-                </button>
-              </div>
-            ))}
+                  <div className="academic-header">
+                    <div className="academic-info-left">
+                      <div className="institution-logo">
+                        <img
+                          src={edu.logo}
+                          alt={`${edu.institution} logo`}
+                          loading="lazy"
+                          width="60"
+                          height="60"
+                        />
+                      </div>
+                      <div className="academic-info">
+                        <h3 className="institution-name">{edu.institution}</h3>
+                        <h4 className="degree-name">{edu.degree}</h4>
+                      </div>
+                    </div>
+                    <div className="academic-meta">
+                      <p className="academic-period">{edu.period}</p>
+                      <p className="academic-location">{edu.location}</p>
+                    </div>
+                  </div>
+
+                  <div className="academic-body">
+                    <p className="academic-description">{edu.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
+
+          {/* Show More Button */}
+          <motion.div
+            className="education-button-container"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.3, delay: 0.4 }}
+          >
+            <button
+              className="show-more-button"
+              onClick={() => setShowAllAcademic(!showAllAcademic)}
+              aria-label={showAllAcademic ? 'Show less education' : 'Show more education'}
+            >
+              <span className="button-text">
+                {showAllAcademic ? 'Show less' : 'Show more'}
+              </span>
+              <motion.svg
+                className="chevron-icon"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                animate={{ rotate: showAllAcademic ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </motion.svg>
+            </button>
+          </motion.div>
         </div>
 
-        {/* Certifications Section */}
+        {/* Certifications */}
         <div className="education-section">
-          <div className="section-header">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-100px 0px' }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <FaCertificate className="section-icon" />
             <h3 className="section-title">Certifications</h3>
-          </div>
-          
+          </motion.div>
+
           <div className="certifications-grid">
-            {certifications.map((cert, index) => (
-              <div 
-                key={index}
-                ref={(el) => (certRefs.current[index] = el)}
-                className={`certification-card scroll-reveal scroll-reveal-delay-${(index % 3) + 1}`}
-              >
-                <div className="certification-header">
-                  <div className="cert-logo">
-                    <img src={cert.logo} alt={`${cert.issuer} certification logo`} loading="lazy" width="60" height="60" />
-                  </div>
-                  <div className="cert-badge">
-                    <FaCertificate />
-                  </div>
-                </div>
-                
-                <div className="certification-content">
-                  <h4 className="cert-name">{cert.name}</h4>
-                  <p className="cert-issuer">{cert.issuer}</p>
-                  <p className="cert-date">{cert.date}</p>
-                  
-                  {cert.skills && (
-                    <div className="cert-skills">
-                      {cert.skills.map((skill, skillIndex) => (
-                        <span key={skillIndex} className="cert-skill-tag">{skill}</span>
-                      ))}
+            <AnimatePresence>
+              {displayedCerts.map((cert, index) => (
+                <motion.div
+                  key={index}
+                  className="certification-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 30 }}
+                  transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.15 }}
+                >
+                  <div className="certification-header">
+                    <div className="certification-content">
+                      <h4 className="cert-name">{cert.name}</h4>
+                      <p className="cert-issuer">{cert.issuer}</p>
+                      <p className="cert-date">{cert.date}</p>
+
+                      {cert.skills && (
+                        <div className="cert-skills">
+                          {cert.skills.map((skill, skillIndex) => (
+                            <span key={skillIndex} className="cert-skill-tag">{skill}</span>
+                          ))}
+                        </div>
+                      )}
+
+                      {cert.credentialUrl && (
+                        <a
+                          href={cert.credentialUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cert-link"
+                        >
+                          <span>View Credential</span>
+                          <FaExternalLinkAlt />
+                        </a>
+                      )}
                     </div>
-                  )}
-                  
-                  {cert.credentialUrl && (
-                    <a 
-                      href={cert.credentialUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="cert-link"
-                      aria-label={`View ${cert.name} credential from ${cert.issuer}`}
-                    >
-                      <span>View Credential</span>
-                      <FaExternalLinkAlt />
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
+
+          {/* Show More Button for Certs */}
+          {certifications.length > 1 && (
+            <motion.div
+              className="education-button-container"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.4 }}
+            >
+              <button
+                className="show-more-button"
+                onClick={() => setShowAllCerts(!showAllCerts)}
+                aria-label={showAllCerts ? 'Show less certifications' : 'Show more certifications'}
+              >
+                <span className="button-text">
+                  {showAllCerts ? 'Show less' : 'Show more'}
+                </span>
+                <motion.svg
+                  className="chevron-icon"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  animate={{ rotate: showAllCerts ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </motion.svg>
+              </button>
+            </motion.div>
+          )}
         </div>
       </div>
     </section>
