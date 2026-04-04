@@ -1,48 +1,39 @@
 import { useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useActiveSection } from '../../hooks/useActiveSection'
+import { useTranslation } from '../../hooks/useTranslation'
 import { SettingsModal } from '../SettingsModal'
+import { SCROLL_CONFIG } from '../../constants/config'
 import './styles.css'
 
+const NAV_LINKS = [
+  { id: 'home', labelKey: 'nav.home' },
+  { id: 'skills', labelKey: 'nav.skills' },
+  { id: 'projects', labelKey: 'nav.projects' },
+  { id: 'experience', labelKey: 'nav.experience' },
+  { id: 'education', labelKey: 'nav.education' },
+] as const
+
 export function Navigation() {
+  const { t } = useTranslation()
   const [isSettingsOpen, setIsSettingsOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const location = useLocation()
-  const navigate = useNavigate()
+  const activeSection = useActiveSection()
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false)
   }
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault()
-    closeMobileMenu()
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        const target = document.querySelector(targetId)
-        if (target) {
-          const navHeight = 80
-          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight
-          window.scrollTo({ top: targetPosition, behavior: 'smooth' })
-        }
-      }, 100)
-    } else {
-      const target = document.querySelector(targetId)
-      if (target) {
-        const navHeight = 80
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' })
-      }
-    }
-  }
-
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     closeMobileMenu()
-    if (location.pathname !== '/') {
-      navigate('/')
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: SCROLL_CONFIG.SCROLL_BEHAVIOR })
+  }
+
+  const handleNavClick = (sectionId: string) => {
+    closeMobileMenu()
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: SCROLL_CONFIG.SCROLL_BEHAVIOR })
     }
   }
 
@@ -72,9 +63,15 @@ export function Navigation() {
           
           <div className={`nav-menu ${isMobileMenuOpen ? 'open' : ''}`}>
             <div className="nav-links">
-              <a href="#experience" className="nav-link" onClick={(e) => handleNavClick(e, '#experience')}>experience</a>
-              <a href="#projects" className="nav-link" onClick={(e) => handleNavClick(e, '#projects')}>projects</a>
-              <a href="#education" className="nav-link" onClick={(e) => handleNavClick(e, '#education')}>education</a>
+              {NAV_LINKS.map(({ id, labelKey }) => (
+                <button
+                  key={id}
+                  className={`nav-link ${activeSection === id ? 'active' : ''}`}
+                  onClick={() => handleNavClick(id)}
+                >
+                  {t(labelKey)}
+                </button>
+              ))}
             </div>
           
             <div className="nav-right">

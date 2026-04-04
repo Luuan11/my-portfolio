@@ -1,35 +1,39 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
+import { ANIMATION_CONFIG } from '../constants/config'
 
-export function useScrollReveal(options = {}) {
+export function useScrollReveal(options: Partial<IntersectionObserverInit> = {}) {
   const elementRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const observerRef = useRef<IntersectionObserver | null>(null)
+
+  const observerConfig = useMemo(() => ({
+    threshold: ANIMATION_CONFIG.SCROLL_REVEAL_THRESHOLD,
+    rootMargin: ANIMATION_CONFIG.SCROLL_REVEAL_MARGIN,
+    ...options,
+  }), [options])
 
   useEffect(() => {
     const element = elementRef.current
     if (!element) return
 
-    const observer = new IntersectionObserver(
+    observerRef.current = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
-          observer.unobserve(element)
+          observerRef.current?.unobserve(element)
         }
       },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px',
-        ...options,
-      }
+      observerConfig
     )
 
-    observer.observe(element)
+    observerRef.current.observe(element)
 
     return () => {
-      if (element) {
-        observer.unobserve(element)
+      if (observerRef.current && element) {
+        observerRef.current.unobserve(element)
       }
     }
-  }, [])
+  }, [observerConfig])
 
   return { elementRef, isVisible }
 }

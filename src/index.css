@@ -7,6 +7,26 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  scrollbar-color: var(--purple-primary) var(--bg-primary);
+  scrollbar-width: thin;
+}
+
+/* Webkit scrollbar (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--purple-primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--purple-dark);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -40,6 +60,20 @@ html {
   --purple-primary: #a78bfa;
   --purple-dark: #8b5cf6;
   --purple-light: #c4b5fd;
+  
+  /* Typography */
+  --fs-h1: 3rem;
+  --fs-h2: 1.5rem;
+  --fs-h3: 1.25rem;
+  --fs-md: 1.35rem;
+  --fs-p: 1rem;
+  --fs-small: 0.875rem;
+  --fs-xs: 0.75rem;
+  --fs-xxs: 0.8rem;
+  --fs-lg: 1.75rem;
+  --fs-xl: 2rem;
+  --fs-icon: 2.5rem;
+  --fs-icon-lg: 3rem;
 }
 
 :root[data-theme="light"] {
@@ -59,6 +93,20 @@ html {
   --purple-primary: #8b5cf6;
   --purple-dark: #7c3aed;
   --purple-light: #a78bfa;
+  
+  /* Typography */
+  --fs-h1: 3rem;
+  --fs-h2: 1.5rem;
+  --fs-h3: 1.25rem;
+  --fs-md: 1.35rem;
+  --fs-p: 1rem;
+  --fs-small: 0.875rem;
+  --fs-xs: 0.75rem;
+  --fs-xxs: 0.8rem;
+  --fs-lg: 1.75rem;
+  --fs-xl: 2rem;
+  --fs-icon: 2.5rem;
+  --fs-icon-lg: 3rem;
 }
 
 body {

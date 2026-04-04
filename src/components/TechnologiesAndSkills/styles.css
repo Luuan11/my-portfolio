@@ -1,0 +1,503 @@
+/* Technologies Styles */
+.technologies-and-skills {
+  padding: 6rem 0 4rem;
+  position: relative;
+}
+
+.tech-skills-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.technologies-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.technologies-title {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  text-align: left;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+  padding-bottom: 1rem;
+  display: inline-block;
+  width: fit-content;
+  position: relative;
+}
+
+.technologies-description {
+  color: var(--text-secondary);
+  font-size: var(--fs-p);
+  line-height: 1.6;
+  margin-bottom: 4rem;
+  transition: color 0.3s;
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 2rem 0;
+}
+
+.carousel {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 30s linear infinite;
+  padding: 0 2rem;
+  will-change: transform;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-200px * 19 - 2rem * 19));
+  }
+}
+
+/* New Carousel Component Styles */
+.tech-carousel-wrapper {
+  margin-top: 2rem;
+  position: relative;
+  width: 100%;
+}
+
+.tech-carousel {
+  display: flex;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  animation: scroll-carousel 30s linear infinite;
+  padding: 1rem 0;
+  will-change: transform;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-150px * 19 - 1.5rem * 19));
+  }
+}
+
+.tech-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--card-bg);
+  transition: all 0.3s ease;
+  min-width: 150px;
+  cursor: pointer;
+  border: 2px solid var(--border-color);
+}
+
+.tech-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--purple-primary);
+  box-shadow: 0 8px 24px rgba(167, 139, 250, 0.2);
+}
+
+.tech-card.highlight {
+  border-color: var(--purple-primary);
+}
+
+.tech-card.highlight:hover {
+  border-color: var(--purple-primary);
+  box-shadow: 0 8px 32px rgba(167, 139, 250, 0.3);
+}
+
+.tech-icon {
+  font-size: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.tech-card:hover .tech-icon {
+  transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+  .tech-icon {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-icon {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-icon {
+    font-size: 1.75rem;
+  }
+}
+
+.tech-name {
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Skills Styles */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.skills-title {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.skills-icon {
+  font-size: var(--fs-h3);
+  color: var(--purple-primary);
+  transition: color 0.3s;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.skill-card {
+  padding: 2rem;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.skill-card p {
+  color: #b3b3b3;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--purple-primary);
+  box-shadow: 0 12px 32px rgba(167, 139, 250, 0.2);
+}
+
+.skill-card.highlighted {
+  background: var(--card-bg);
+  border-color: var(--purple-primary);
+}
+
+.skill-card.highlighted:hover {
+  border-color: var(--purple-primary);
+  box-shadow: 0 12px 40px rgba(167, 139, 250, 0.3);
+}
+
+.skill-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover .skill-icon-wrapper {
+  transform: scale(1.1);
+}
+
+.skill-icon {
+  font-size: var(--fs-xl);
+  color: var(--purple-primary);
+}
+
+.skill-title {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.skill-description {
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .tech-skills-wrapper {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tech-skills-wrapper {
+    padding: 0 1.5rem;
+    gap: 3rem;
+  }
+
+  .technologies-title {
+    font-size: var(--fs-h2);
+  }
+
+  .skills-title {
+    font-size: var(--fs-p);
+  }
+
+  .skills-icon {
+    font-size: var(--fs-p);
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-track {
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .tech-card {
+    min-width: 120px;
+    padding: 1rem;
+  }
+
+  .tech-icon {
+    font-size: var(--fs-xl);
+  }
+
+  .tech-name {
+    font-size: var(--fs-xxs);
+  }
+
+  .skill-card {
+    padding: 1.5rem;
+  }
+
+  .tech-carousel-wrapper {
+    gap: 1rem;
+  }
+
+  .carousel-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .technologies-and-skills {
+    padding: 2rem 0;
+  }
+
+  .tech-skills-wrapper {
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+
+  .technologies-title {
+    font-size: var(--fs-h3);
+  }
+
+  .skills-title {
+    font-size: var(--fs-p);
+  }
+
+  .skills-icon {
+    font-size: var(--fs-p);
+  }
+
+  .carousel-wrapper {
+    padding: 1.5rem 0;
+  }
+
+  .carousel-track {
+    gap: 0.8rem;
+    padding: 0 0.8rem;
+  }
+
+  .tech-card {
+    min-width: 100px;
+    padding: 0.8rem;
+  }
+
+  .tech-icon {
+    font-size: var(--fs-h2);
+  }
+
+  .tech-name {
+    font-size: var(--fs-xs);
+  }
+
+  .skill-card {
+    padding: 1.2rem;
+  }
+
+  .skill-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+
+  .skill-icon {
+    font-size: var(--fs-h2);
+  }
+
+  .skill-title {
+    font-size: var(--fs-p);
+  }
+
+  .skill-description {
+    font-size: var(--fs-xxs);
+  }
+
+  .tech-carousel-wrapper {
+    gap: 0.8rem;
+  }
+
+  .carousel-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .technologies-and-skills {
+    padding: 2rem 0;
+  }
+
+  .tech-skills-wrapper {
+    padding: 0 0.75rem;
+    gap: 1.5rem;
+  }
+
+  .technologies-title {
+    font-size: var(--fs-lg);
+  }
+
+  .carousel-track {
+    gap: 0.6rem;
+    padding: 0 0.6rem;
+  }
+
+  .tech-card {
+    min-width: 90px;
+    padding: 0.6rem;
+  }
+
+  .tech-icon {
+    font-size: var(--fs-h3);
+  }
+
+  .tech-name {
+    font-size: var(--fs-xs);
+  }
+
+  .skill-card {
+    padding: 1rem;
+  }
+
+  .skill-icon-wrapper {
+    width: 45px;
+    height: 45px;
+  }
+
+  .skill-icon {
+    font-size: var(--fs-h3);
+  }
+
+  .skill-title {
+    font-size: var(--fs-small);
+  }
+
+  .skill-description {
+    font-size: var(--fs-xs);
+  }
+
+  .tech-carousel-wrapper {
+    gap: 0.6rem;
+  }
+
+  .carousel-nav {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}

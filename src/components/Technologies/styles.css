@@ -11,7 +11,7 @@
 }
 
 .technologies-title {
-  font-size: 2rem;
+  font-size: var(--fs-xl);
   font-weight: 700;
   text-align: center;
   color: var(--text-primary);
@@ -102,7 +102,7 @@
 }
 
 .tech-icon {
-  font-size: 3rem;
+  font-size: var(--fs-icon-lg);
   line-height: 1;
   transition: transform 0.3s;
 }
@@ -112,11 +112,17 @@
 }
 
 .tech-name {
-  font-size: 0.95rem;
+  font-size: var(--fs-small);
   font-weight: 500;
   color: var(--text-primary);
   white-space: nowrap;
   transition: color 0.3s;
+}
+
+@media (max-width: 1024px) {
+  .technologies-container {
+    padding: 0 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -125,7 +131,7 @@
   }
   
   .technologies-title {
-    font-size: 1.5rem;
+    font-size: var(--fs-h2);
     margin-bottom: 2rem;
   }
   
@@ -144,7 +150,7 @@
   }
   
   .tech-icon {
-    font-size: 2.5rem;
+    font-size: var(--fs-icon);
   }
   
   .tech-card:hover .tech-icon {
@@ -152,6 +158,79 @@
   }
   
   .tech-name {
-    font-size: 0.85rem;
+    font-size: var(--fs-xxs);
+  }
+}
+
+@media (max-width: 480px) {
+  .technologies {
+    padding: 3.5rem 0 2.5rem;
+  }
+  
+  .technologies-container {
+    padding: 0 1rem;
+  }
+  
+  .technologies-title {
+    font-size: var(--fs-lg);
+    margin-bottom: 1.5rem;
+  }
+  
+  .carousel-wrapper::before,
+  .carousel-wrapper::after {
+    width: 30px;
+  }
+  
+  .carousel-track {
+    gap: 1rem;
+  }
+  
+  .tech-card {
+    padding: 1.2rem 1.5rem;
+    min-width: 100px;
+  }
+  
+  .tech-icon {
+    font-size: var(--fs-h2);
+  }
+  
+  .tech-name {
+    font-size: var(--fs-xs);
+  }
+}
+
+@media (max-width: 320px) {
+  .technologies {
+    padding: 3rem 0 2rem;
+  }
+  
+  .technologies-container {
+    padding: 0 0.75rem;
+  }
+  
+  .technologies-title {
+    font-size: var(--fs-md);
+  }
+  
+  .carousel-wrapper::before,
+  .carousel-wrapper::after {
+    width: 20px;
+  }
+  
+  .carousel-track {
+    gap: 0.8rem;
+  }
+  
+  .tech-card {
+    padding: 1rem 1.2rem;
+    min-width: 90px;
+  }
+  
+  .tech-icon {
+    font-size: var(--fs-h3);
+  }
+  
+  .tech-name {
+    font-size: var(--fs-xs);
   }
 }
