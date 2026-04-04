@@ -1,12 +1,13 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import { useTranslation } from '../../hooks/useTranslation'
 import '../../styles/animations.css'
 import './styles.css'
 
 interface Project {
   title: string
-  description: string
+  descriptionKey: string
   image: string
   technologies: string[]
   githubUrl?: string
@@ -23,30 +24,30 @@ interface CarouselControls {
 
 const projects: Project[] = [
   {
-    title: 'clean-architecture-go',
-    description: 'Clean architecture order management with golang. Features advanced patterns and best practices for building scalable and maintainable applications.',
+    title: 'cleanArchGo',
+    descriptionKey: 'projects.items.cleanArchGo.description',
     image: '/images/projects/clean-arch.png',
     technologies: ['Golang', 'Clean Architecture', 'MySQL', 'GraphQL', 'gRPC', 'Docker'],
     githubUrl: 'https://github.com/Luuan11/clean-architecture-go',
   },
   {
-    title: 'Stress-test',
-    description: 'Command line tool that allows you to test the performance of APIs and web services by performing multiple simultaneous requests. Built for developers who need reliable performance testing.',
+    title: 'stressTest',
+    descriptionKey: 'projects.items.stressTest.description',
     image: '/images/projects/stress-test.png',
     technologies: ['Golang', 'Docker'],
     githubUrl: 'https://github.com/Luuan11/stress-test-go',
   },
   {
-    title: 'go-meteor',
-    description: 'Game App made with GO and Ebiten packet. An interactive gaming experience showcasing the power of Go for game development with smooth animations and responsive controls.',
+    title: 'goMeteor',
+    descriptionKey: 'projects.items.goMeteor.description',
     image: '/images/projects/go-meteor.png',
     technologies: ['Golang', 'Ebiten'],
     githubUrl: 'https://github.com/Luuan11/go-meteor',
     liveUrl: 'https://luuan11.github.io/go-meteor/',
   },
   {
-    title: 'Discord Purple',
-    description: 'A real-time chat application inspired by Discord. Users authenticate securely with GitHub OAuth, ensuring no one can impersonate another user. Send messages and stickers instantly, and see other users\' messages in real-time. The app features a modern UI with a space-themed background, custom scrollbar, and GitHub profile integration.',
+    title: 'discordPurple',
+    descriptionKey: 'projects.items.discordPurple.description',
     image: '/images/projects/discord-purple.png',
     technologies: ['Next.js', 'Firebase', 'SkyneXUI', 'GitHub OAuth', 'Vercel'],
     githubUrl: 'https://github.com/Luuan11/discordpurple',
@@ -123,6 +124,7 @@ export function Projects() {
     useProjectCarousel(projects.length)
   
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal()
+  const { t } = useTranslation()
   
   const currentProject = projects[currentIndex]
 
@@ -134,10 +136,10 @@ export function Projects() {
           ref={titleRef as React.RefObject<HTMLHeadingElement>}
           className={`projects-title title-underline ${titleVisible ? 'is-visible' : ''}`}
         >
-          Projects
+          {t('projects.title')}
         </h2>
         <p className="projects-description">
-          A showcase of my portfolio projects featuring modern architectures, clean code practices, and cutting-edge technologies that demonstrate my expertise in full-stack development.
+          {t('projects.description')}
         </p>
 
         <div
@@ -163,8 +165,8 @@ export function Projects() {
             </div>
 
             <div className="project-info-section">
-              <h3 className="showcase-title">{currentProject.title}</h3>
-              <p className="showcase-description">{currentProject.description}</p>
+              <h3 className="showcase-title">{t(`projects.items.${currentProject.title}.title`)}</h3>
+              <p className="showcase-description">{t(currentProject.descriptionKey)}</p>
               
               <div className="showcase-technologies" role="list" aria-label="Technologies used">
                 {currentProject.technologies.map((tech) => (
@@ -184,7 +186,7 @@ export function Projects() {
                     aria-label={`View live demo of ${currentProject.title}`}
                   >
                     <FaExternalLinkAlt aria-hidden="true" />
-                    <span>View Project</span>
+                    <span>{t('projects.viewProject')}</span>
                   </a>
                 )}
                 {currentProject.githubUrl && (
@@ -196,7 +198,7 @@ export function Projects() {
                     aria-label={`View source code of ${currentProject.title} on GitHub`}
                   >
                     <FaGithub aria-hidden="true" />
-                    <span>Code</span>
+                    <span>{t('projects.code')}</span>
                   </a>
                 )}
               </div>
