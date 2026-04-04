@@ -1,5 +1,6 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal'
-import { FaUser, FaBriefcase, FaLightbulb } from 'react-icons/fa'
+import { FaRegUser, FaRegLightbulb } from 'react-icons/fa'
+import { LuBriefcaseBusiness } from 'react-icons/lu'
 import '../../styles/animations.css'
 import './styles.css'
 
@@ -14,7 +15,7 @@ export function About() {
       ref={sectionRef as React.RefObject<HTMLElement>}
     >
       <div className="about-container">
-        <h2 className={`about-title scroll-reveal ${sectionVisible ? 'is-visible' : ''}`}>
+        <h2 className={`about-title title-underline scroll-reveal ${sectionVisible ? 'is-visible' : ''}`}>
           About Me
         </h2>
         <div 
@@ -23,7 +24,7 @@ export function About() {
         >
           <div className="about-topic">
             <h3 className="about-topic-title">
-              <FaUser className="topic-icon" />
+              <FaRegUser className="topic-icon" />
               Who I Am
             </h3>
             <p>
@@ -35,7 +36,7 @@ export function About() {
 
           <div className="about-topic">
             <h3 className="about-topic-title">
-              <FaBriefcase className="topic-icon" />
+              <LuBriefcaseBusiness className="topic-icon" />
               Experience & Expertise
             </h3>
             <p>
@@ -48,7 +49,7 @@ export function About() {
 
           <div className="about-topic">
             <h3 className="about-topic-title">
-              <FaLightbulb className="topic-icon" />
+              <FaRegLightbulb className="topic-icon" />
               Continuous Learning
             </h3>
             <p>
