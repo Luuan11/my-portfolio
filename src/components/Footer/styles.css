@@ -39,8 +39,8 @@
 }
 
 .footer-social-link:hover {
-  color: var(--purple-light);
-  background: var(--active-bg);
+  color: var(--bg-primary);
+  background: var(--purple-primary);
 }
 
 .footer-copyright {
