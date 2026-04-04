@@ -1,11 +1,13 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { useTypewriterLoop } from '../../hooks/useTypewriterLoop'
+import { useTranslation } from '../../hooks/useTranslation'
 import { ScrollHint } from '../ScrollHint'
 import { ANIMATION_CONFIG } from '../../constants/config'
 import '../../styles/animations.css'
 import './styles.css'
 
 export function Hero() {
+  const { t } = useTranslation()
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal()
   const { elementRef: descRef, isVisible: descVisible } = useScrollReveal()
   const { elementRef: imageRef, isVisible: imageVisible } = useScrollReveal()
@@ -24,7 +26,7 @@ export function Hero() {
             ref={titleRef as React.RefObject<HTMLHeadingElement>}
             className={`hero-title scroll-reveal ${titleVisible ? 'is-visible' : ''}`}
           >
-            Hi, I'm Luan Fernando
+            {t('hero.title')}
           </h1>
           <div className="typewriter-container">
             <span className="typewriter-text">{typewriterText}</span>
@@ -34,7 +36,7 @@ export function Hero() {
             ref={descRef as React.RefObject<HTMLParagraphElement>}
             className={`hero-description scroll-reveal scroll-reveal-delay-1 ${descVisible ? 'is-visible' : ''}`}
           >
-            I am a <span className="highlight-purple">Software Developer</span> passionate about development, with comprehensive skills in both frontend and backend, which allow me to develop great digital experiences.
+            {t('hero.description')}
           </p>
         </div>
         <div 

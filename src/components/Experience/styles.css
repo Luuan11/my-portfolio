@@ -173,6 +173,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .calendar-icon,
@@ -482,12 +483,11 @@
   }
   
   .company-name {
-    font-size: var(--fs-h3);
+    font-size: 20px;
   }
-  
+
   .card-title {
-    font-size: var(--fs-p);
-  }
+    font-size: 16px;
   
   .card-meta {
     width: 100%;
@@ -564,11 +564,11 @@
   }
 
   .company-name {
-    font-size: var(--fs-p);
+    font-size: 18px;
   }
   
   .card-title {
-    font-size: var(--fs-small);
+    font-size: 15px;
   }
 
   .card-meta {
@@ -584,13 +584,15 @@
   }
 
   .card-date {
-    grid-column: 2 / 3;
-    text-align: right;
+    grid-column: 1 / 2;
+    text-align: left;
   }
 
   .card-location {
-    grid-column: 1 / 3;
+    grid-column: 2 / 3;
+    text-align: right;
     font-size: var(--fs-xs);
+    justify-self: end;
   }
   
   .timeline {
@@ -637,7 +639,7 @@
   }
   
   .experience-title {
-    font-size: var(--fs-lg);
+    font-size: 36px;
     margin-bottom: 1.5rem;
   }
   
@@ -654,21 +656,22 @@
     width: 45px;
     height: 45px;
   }
-  
+
   .company-name {
     font-size: var(--fs-p);
   }
-  
+
   .card-title {
     font-size: var(--fs-small);
   }
-  
-  .timeline-team {
-    font-size: var(--fs-small);
-  }
-  
-  .timeline-description {
+
+  .card-date,
+  .card-location {
     font-size: var(--fs-xs);
+  }
+
+  .current-badge {
+    display: none;
   }
 }
 
@@ -699,11 +702,11 @@
   }
   
   .company-name {
-    font-size: var(--fs-small);
+    font-size: 14px;
   }
   
   .card-title {
-    font-size: var(--fs-xs);
+    font-size: 12px;
   }
   
   .timeline {

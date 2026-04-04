@@ -2,41 +2,42 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { MdOutlineLocationOn, MdOutlineCalendarMonth } from 'react-icons/md'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import { useTranslation } from '../../hooks/useTranslation'
 import '../../styles/animations.css'
 import './styles.css'
 
 const companies = [
   {
-    name: 'Mercado Libre',
+    name: 'mercadoLibre',
     logo: '/images/mercadolivre.jpeg',
-    position: 'Software Developer',
+    position: 'softwareDeveloper',
     period: 'Mar 2024 • Present',
     location: 'Brazil',
     experiences: [
       {
         team: 'Software Developer',
-        description: 'As a Software Developer, I worked on resolving legacy issues in large-scale applications with high responsibility for CX within the Mercado Libre ecosystem, spanning multiple countries across Latin America. I was responsible for integrating social media platforms — including Twitter/X, Facebook, and Instagram — by developing a unified online communication system that expanded support channels and strengthened the bridge between users and representatives, resulting in faster response times and more personalized customer experiences. I also developed an integration with Twilio for telephony services, enabling automatic call transcription and using that data as intelligent context for the next representative in case of call transfers. This solution led to a 9% reduction in Average Handling Time (AHT), significantly improving service efficiency. Currently, I am focused on the development of MCPs and autonomous agents integrated with Verdi, applying LLMs for automated interpretation and resolution of support requests.',
+        descriptionKey: 'experience.companies.mercadoLibre.softwareDeveloper',
         technologies: ['Golang', 'Java', 'Git', 'NoSQL', 'MySQL', 'Datadog', 'Grafana', 'Docker', 'CI/CD', 'Jenkins']
       },
     ]
   },
   {
-    name: 'Cotecna Inspection',
+    name: 'cotecna',
     logo: '/images/cotecna.jpeg',
-    position: 'IT Analyst',
+    position: 'analyst',
     period: 'Jan 2022 • Mar 2024',
     location: 'Brazil',
     experiences: [
       {
         team: 'IT Analyst',
         period: 'Jan 2023 • Mar 2024',
-        description: 'I worked as an Analyst responsible for IT at Cotecna Level Brazil, managing technical support requests, providing devices to employees, overseeing and controlling the IT budget in Brazil, and coordinating multiple external IT teams. I was also involved in strategic decision-making for IT and the development of web applications.',
+        descriptionKey: 'experience.companies.cotecna.analyst',
         technologies: ['Python', 'SQL Server', 'Windows Server', 'PHP', 'Backups', 'IT Management']
       },
       {
         team: 'IT Intern',
         period: 'Jan 2022 • Dez 2023',
-        description: 'I worked as an IT intern at Cotecna Level Brazil, assisting employees with technical issues, managing company equipment to ensure proper use, and supporting the financial management of IT operations in Brazil.',
+        descriptionKey: 'experience.companies.cotecna.intern',
         technologies: ['Python', 'SQL Server', 'Hardware', 'Networking']
       },
     ]
@@ -46,6 +47,7 @@ const companies = [
 export function Experience() {
   const [showAll, setShowAll] = useState(false)
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal()
+  const { t } = useTranslation()
 
   const displayedCompanies = showAll ? companies : [companies[0]]
 
@@ -56,10 +58,10 @@ export function Experience() {
           ref={titleRef as React.RefObject<HTMLHeadingElement>}
           className={`experience-title title-underline ${titleVisible ? 'is-visible' : ''}`}
         >
-          Experiences
+          {t('experience.title')}
         </h2>
         <p className="experience-description">
-          My professional journey in software development and IT management, where I've contributed to building scalable solutions and supporting technical infrastructure across diverse environments.
+          {t('experience.description')}
         </p>
         <div className="experience-content">
           {displayedCompanies.map((company, companyIndex) => (
@@ -83,13 +85,13 @@ export function Experience() {
                     />
                   </div>
                   <div>
-                    <h3 className="company-name">{company.name}</h3>
-                    <h4 className="card-title">{company.position}</h4>
+                    <h3 className="company-name">{t(`experience.companies.${company.name}.name`)}</h3>
+                    <h4 className="card-title">{t(`experience.companies.${company.name}.position`)}</h4>
                   </div>
                 </div>
                 <div className="card-meta">
                   {company.period.includes('Present') && (
-                    <span className="current-badge">Current</span>
+                    <span className="current-badge">{t('experience.current')}</span>
                   )}
                   <p className="card-date"><MdOutlineCalendarMonth className="calendar-icon" />{company.period}</p>
                   <p className="card-location"><MdOutlineLocationOn className="location-icon" />{company.location}</p>
@@ -108,7 +110,7 @@ export function Experience() {
                           </div>
                           {'period' in exp && <span className="timeline-period">{exp.period}</span>}
                         </div>
-                        <p className="timeline-description">{exp.description}</p>
+                        <p className="timeline-description">{t(exp.descriptionKey)}</p>
                         <div className="timeline-technologies">
                           {exp.technologies.map((tech, techIndex) => (
                             <span key={techIndex} className="tech-tag">{tech}</span>
@@ -135,7 +137,7 @@ export function Experience() {
               aria-label={showAll ? 'Show less experiences' : 'Show more experiences'}
             >
               <span className="button-text">
-                {showAll ? 'Show less' : 'Show more'}
+                {showAll ? t('experience.showLess') : t('experience.showMore')}
               </span>
               <motion.svg
                 className="chevron-icon"

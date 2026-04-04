@@ -5,23 +5,24 @@ import { PiCertificate } from 'react-icons/pi'
 import { LuGraduationCap } from 'react-icons/lu'
 import { MdOutlineLocationOn, MdOutlineCalendarMonth } from 'react-icons/md'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import { useTranslation } from '../../hooks/useTranslation'
 import './styles.css'
 
 const academicEducation = [
   {
-    institution: 'Full Cycle',
-    degree: "Postgraduate Degree in Go Expert",
+    institution: 'fullCycle',
+    degree: 'postgraduate',
     period: '2024 - 2025',
     location: 'Brazil',
-    description: "During my postgraduate studies in Full Cycle Go Expert, I deepened my knowledge in advanced and scalable development with Go, covering topics such as fundamentals of the language and standard packages, context management and scope control, database integration using SQLC, project packaging and modularization, unit, integration, and benchmark testing, and the development of REST, GraphQL, and gRPC APIs. The program also included concurrency with goroutines and channels, event handling and asynchronous processing, private modules and dependency management, file uploads to AWS S3, CLI creation with Cobra, application of Unit of Work and Dependency Injection patterns, implementation of Clean Architecture principles, and deployment with Docker and Kubernetes.",
+    descriptionKey: 'education.institutions.fullCycle.description',
     logo: '/images/fullcycle.jpeg'
   },
   {
-    institution: 'Uninove Nove de Julho',
-    degree: "Bachelor's Degree in Information Systems",
+    institution: 'uninove',
+    degree: 'bachelor',
     period: '2019 - 2023',
     location: 'Brazil',
-    description: "During my Bachelor's degree in Information Systems, I gained experience with a wide range of technologies and tools used in software development and IT management. Some of the main technologies I learned include programming languages such as Java, Python, C#, PHP, and JavaScript; databases like MySQL, Oracle, SQL Server, PostgreSQL, and MongoDB; and development frameworks such as Spring, Hibernate, AngularJS, React, and Vue.js. I also acquired knowledge of operating systems including Windows, Linux, and macOS.",
+    descriptionKey: 'education.institutions.uninove.description',
     logo: '/images/uninove.jpeg'
   }
 ]
@@ -41,6 +42,7 @@ export function Education() {
   const [showAllAcademic, setShowAllAcademic] = useState(false)
   const [showAllCerts, setShowAllCerts] = useState(false)
   const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal()
+  const { t } = useTranslation()
 
   const displayedAcademic = showAllAcademic ? academicEducation : academicEducation.slice(0, 1)
   const displayedCerts = showAllCerts ? certifications : certifications.slice(0, 1)
@@ -56,7 +58,7 @@ export function Education() {
           viewport={{ once: true, margin: '-100px 0px' }}
           transition={{ duration: 0.5 }}
         >
-          Education
+          {t('education.title')}
         </motion.h2>
 
         <motion.p
@@ -66,7 +68,7 @@ export function Education() {
           viewport={{ once: true, margin: '-100px 0px' }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          My academic background and complementary courses that contributed to my professional development and technical enhancement in the development field.
+          {t('education.description')}
         </motion.p>
 
         {/* Academic Education */}
@@ -79,7 +81,7 @@ export function Education() {
             transition={{ duration: 0.5 }}
           >
             <LuGraduationCap className="section-icon" />
-            <h3 className="section-title">Academic Education</h3>
+            <h3 className="section-title">{t('education.academic')}</h3>
           </motion.div>
 
           <div className="academic-grid">
@@ -105,8 +107,8 @@ export function Education() {
                         />
                       </div>
                       <div className="academic-info">
-                        <h3 className="institution-name">{edu.institution}</h3>
-                        <h4 className="degree-name">{edu.degree}</h4>
+                        <h3 className="institution-name">{t(`education.institutions.${edu.institution}.name`)}</h3>
+                        <h4 className="degree-name">{t(`education.institutions.${edu.institution}.degree`)}</h4>
                       </div>
                     </div>
                     <div className="academic-meta">
@@ -116,7 +118,7 @@ export function Education() {
                   </div>
 
                   <div className="academic-body">
-                    <p className="academic-description">{edu.description}</p>
+                    <p className="academic-description">{t(edu.descriptionKey)}</p>
                   </div>
                 </motion.div>
               ))}
@@ -137,7 +139,7 @@ export function Education() {
               aria-label={showAllAcademic ? 'Show less education' : 'Show more education'}
             >
               <span className="button-text">
-                {showAllAcademic ? 'Show less' : 'Show more'}
+                {showAllAcademic ? t('education.showLess') : t('education.showMore')}
               </span>
               <motion.svg
                 className="chevron-icon"
@@ -168,7 +170,7 @@ export function Education() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <PiCertificate className="section-icon" />
-            <h3 className="section-title">Certifications</h3>
+            <h3 className="section-title">{t('education.certifications')}</h3>
           </motion.div>
 
           <div className="certifications-grid">
@@ -203,7 +205,7 @@ export function Education() {
                           rel="noopener noreferrer"
                           className="cert-link"
                         >
-                          <span>View Credential</span>
+                          <span>{t('education.viewCredential')}</span>
                           <FaExternalLinkAlt />
                         </a>
                       )}
@@ -229,7 +231,7 @@ export function Education() {
                 aria-label={showAllCerts ? 'Show less certifications' : 'Show more certifications'}
               >
                 <span className="button-text">
-                  {showAllCerts ? 'Show less' : 'Show more'}
+                  {showAllCerts ? t('education.showLess') : t('education.showMore')}
                 </span>
                 <motion.svg
                   className="chevron-icon"
