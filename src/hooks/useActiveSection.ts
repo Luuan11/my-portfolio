@@ -5,10 +5,6 @@ export function useActiveSection() {
   const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
-    if (window.scrollY < SCROLL_CONFIG.SCROLL_THRESHOLD) {
-      setActiveSection('home')
-    }
-
     const observerOptions = {
       root: null,
       rootMargin: SCROLL_CONFIG.OBSERVER_ROOT_MARGIN,
@@ -16,17 +12,18 @@ export function useActiveSection() {
     }
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      // Find the section with the highest intersection ratio
       let mostVisibleEntry = entries[0]
-      let maxRatio = 0
+      let maxRatio = mostVisibleEntry?.intersectionRatio || 0
 
       entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+        if (entry.intersectionRatio > maxRatio) {
           maxRatio = entry.intersectionRatio
           mostVisibleEntry = entry
         }
       })
 
-      if (mostVisibleEntry && mostVisibleEntry.isIntersecting) {
+      if (mostVisibleEntry) {
         const sectionId = mostVisibleEntry.target.id || 'home'
         setActiveSection(sectionId)
       }
