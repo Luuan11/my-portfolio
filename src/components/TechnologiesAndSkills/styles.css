@@ -246,6 +246,10 @@
   text-align: center;
 }
 
+.skill-card p {
+  color: #b3b3b3;
+}
+
 .skill-card:hover {
   transform: translateY(-8px);
   border-color: var(--purple-primary);

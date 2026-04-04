@@ -1,4 +1,5 @@
 import { useScrollReveal } from '../../hooks/useScrollReveal'
+import { useTranslation } from '../../hooks/useTranslation'
 import { FaCode } from 'react-icons/fa'
 import { technologies, skills } from './data'
 import { TechCarousel } from './components/TechCarousel'
@@ -9,6 +10,7 @@ import './styles.css'
 export function TechnologiesAndSkills() {
   const { elementRef: techRef, isVisible: techVisible } = useScrollReveal()
   const { elementRef: skillsRef, isVisible: skillsVisible } = useScrollReveal()
+  const { t } = useTranslation()
 
   return (
     <section className="technologies-and-skills" id="skills">
@@ -17,9 +19,9 @@ export function TechnologiesAndSkills() {
           ref={techRef as React.RefObject<HTMLDivElement>}
           className={`technologies-container scroll-reveal ${techVisible ? 'is-visible' : ''}`}
         >
-          <h2 className={`technologies-title title-underline ${techVisible ? 'is-visible' : ''}`}>Technologies & Skills</h2>
+          <h2 className={`technologies-title title-underline ${techVisible ? 'is-visible' : ''}`}>{t('skills.title')}</h2>
           <p className="technologies-description">
-            My technical stack encompasses modern frameworks, programming languages, and tools that enable me to build robust, scalable applications across full-stack development.
+            {t('skills.description')}
           </p>
           <TechCarousel technologies={technologies} />
         </div>
@@ -30,7 +32,7 @@ export function TechnologiesAndSkills() {
         >
           <h3 className="skills-title">
             <FaCode className="skills-icon" />
-            Skills
+            {t('skills.skillsSection')}
           </h3>
           <SkillsGrid skills={skills} />
         </div>

@@ -15,8 +15,8 @@ export interface Technology {
 
 export interface Skill {
   icon: ComponentType<{ className?: string; style?: React.CSSProperties }>
-  title: string
-  description: string
+  titleKey: string
+  descriptionKey: string
   highlight: boolean
 }
 
@@ -45,38 +45,38 @@ export const technologies: Technology[] = [
 export const skills: Skill[] = [
   {
     icon: FaCode,
-    title: 'Front-end Development',
-    description: 'Expert in React, TypeScript, JavaScript, building modern and responsive interfaces',
+    titleKey: 'skills.cards.frontend.title',
+    descriptionKey: 'skills.cards.frontend.description',
     highlight: false
   },
   {
     icon: FaServer,
-    title: 'Back-end Development',
-    description: 'Proficient in Golang, Java, creating robust and scalable APIs',
+    titleKey: 'skills.cards.backend.title',
+    descriptionKey: 'skills.cards.backend.description',
     highlight: true
   },
   {
     icon: FaDatabase,
-    title: 'Database Management',
-    description: 'Experience with MySQL, MongoDB, PostgreSQL for efficient data solutions',
+    titleKey: 'skills.cards.database.title',
+    descriptionKey: 'skills.cards.database.description',
     highlight: false
   },
   {
     icon: BiGitBranch,
-    title: 'Version Control',
-    description: 'Git expert for versioning, collaboration and CI/CD workflows',
+    titleKey: 'skills.cards.versionControl.title',
+    descriptionKey: 'skills.cards.versionControl.description',
     highlight: false
   },
   {
     icon: MdDevices,
-    title: 'DevOps & Containers',
-    description: 'Docker and Kubernetes for containerization and orchestration of applications',
+    titleKey: 'skills.cards.devops.title',
+    descriptionKey: 'skills.cards.devops.description',
     highlight: false
   },
   {
     icon: RiPencilRulerLine,
-    title: 'Testing & Quality',
-    description: 'Automated testing with JUnit, Jest, ensuring code reliability',
+    titleKey: 'skills.cards.testing.title',
+    descriptionKey: 'skills.cards.testing.description',
     highlight: false
   }
 ]
