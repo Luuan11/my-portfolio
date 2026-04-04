@@ -1,4 +1,4 @@
-import { Technology } from '../data'
+import type { Technology } from '../data'
 
 interface TechCardProps extends Technology {}
 

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { Technology } from '../data'
+import type { Technology } from '../data'
 import { TechCard } from './TechCard'
 
 interface TechCarouselProps {

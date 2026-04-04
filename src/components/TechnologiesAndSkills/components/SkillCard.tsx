@@ -1,4 +1,4 @@
-import { Skill } from '../data'
+import type { Skill } from '../data'
 
 interface SkillCardProps extends Skill {}
 
