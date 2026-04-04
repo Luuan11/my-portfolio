@@ -1,5 +1,6 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
 import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 import '../../styles/animations.css'
 import './styles.css'
 
@@ -121,12 +122,18 @@ export function Projects() {
   const { currentIndex, isAnimating, handleNext, handlePrev, handleDotClick } = 
     useProjectCarousel(projects.length)
   
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollReveal()
+  
   const currentProject = projects[currentIndex]
 
   return (
     <section className="projects" id="projects" aria-labelledby="projects-heading">
       <div className="projects-container">
-        <h2 id="projects-heading" className="projects-title">
+        <h2 
+          id="projects-heading" 
+          ref={titleRef as React.RefObject<HTMLHeadingElement>}
+          className={`projects-title title-underline ${titleVisible ? 'is-visible' : ''}`}
+        >
           Projects
         </h2>
         <p className="projects-description">
