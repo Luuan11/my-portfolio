@@ -256,12 +256,12 @@
   box-shadow: 0 12px 32px rgba(167, 139, 250, 0.2);
 }
 
-.skill-card.highlighted {
+.skill-card.highlight {
   background: var(--card-bg);
   border-color: var(--purple-primary);
 }
 
-.skill-card.highlighted:hover {
+.skill-card.highlight:hover {
   border-color: var(--purple-primary);
   box-shadow: 0 12px 40px rgba(167, 139, 250, 0.3);
 }

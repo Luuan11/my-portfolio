@@ -9,17 +9,17 @@
   "hero": {
     "title": "Olá, sou Luan Fernando",
     "subtitle": "Software Developer",
-    "description": "Sou um desenvolvedor de software apaixonado por construir aplicações web modernas. Minha jornada na tecnologia tem sido impulsionada pela curiosidade e um desejo constante de aprender e melhorar. Especializado em tecnologias frontend com conhecimento aprofundado em React, TypeScript e design responsivo."
+    "description": "Sou um engenheiro de software apaixonado por desenvolver, com habilidades abrangentes tanto no front-end quanto no back-end, que me permitem desenvolver boas experiências digitais. Buscando sempre novos desafios, gosto de ampliar meus conhecimentos na área, sempre tentando algo novo. Estou pronto para contribuir com minha experiência e entusiasmo!"
   },
   "about": {
     "title": "Sobre Mim",
     "sections": {
       "whoIAm": "Quem Sou",
-      "whoIAmText": "Sou um desenvolvedor de software apaixonado por construir aplicações web modernas. Minha jornada na tecnologia tem sido impulsionada pela curiosidade e um desejo constante de aprender e melhorar. Especializado em tecnologias frontend com conhecimento aprofundado em React, TypeScript e design responsivo.",
+      "whoIAmText": "Sou um desenvolvedor com foco em backend, apaixonado por construir soluções eficientes e bem estruturadas. Tenho trabalhado principalmente com Go (Golang), desenvolvendo APIs, lidando com concorrência, cache e integração entre serviços. Gosto de entender o problema antes de sair codando, buscando sempre soluções simples, performáticas e que façam sentido no longo prazo.",
       "experience": "Experiência e Expertise",
-      "experienceText": "Com experiência em desenvolvimento frontend e backend, gosto de criar soluções que têm um impacto real. Acredito em escrever código limpo e manutenível, seguindo as melhores práticas para entregar software de alta qualidade. Proficiente em arquitetura de componentes, gerenciamento de estado e otimização de UI/UX.",
+      "experienceText": "Minha experiência é voltada à construção de sistemas backend e organização de aplicações, com atenção especial a arquitetura e boas práticas. Tenho familiaridade com conceitos como Clean Architecture, modularização e desenvolvimento orientado a serviços.\n\nAlém disso, também transito bem entre diferentes camadas do sistema quando necessário, seja ajustando integrações, lidando com dados ou estruturando fluxos mais eficientes. Busco sempre escrever código limpo, de fácil manutenção e que escale sem dor de cabeça.",
       "learning": "Aprendizado Contínuo",
-      "learningText": "Quando não estou codificando, estou explorando novas tecnologias, contribuindo para código aberto ou compartilhando conhecimento com a comunidade de desenvolvedores. Sempre buscando melhorar habilidades e manter-me atualizado com as tendências e melhores práticas da indústria."
+      "learningText": "Estou constantemente evoluindo minhas habilidades, estudando temas como microsserviços, mensageria, containers (Docker/Kubernetes) e padrões de projeto. Também tenho interesse em automação de processos, principalmente em transformar tarefas manuais em soluções mais inteligentes e produtivas.\n\nGosto de explorar novas ferramentas e ideias, mas sempre com um olhar prático: tecnologia, pra mim, precisa resolver problema de verdade."
     }
   },
   "experience": {

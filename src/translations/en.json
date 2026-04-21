@@ -9,17 +9,17 @@
   "hero": {
     "title": "Hi, I'm Luan Fernando",
     "subtitle": "Software Developer",
-    "description": "I'm a passionate software developer with expertise in building modern web applications. My journey in tech has been driven by curiosity and a constant desire to learn and improve. Specialized in frontend technologies with deep knowledge of React, TypeScript, and responsive design."
+    "description": "I'm a backend-focused developer, passionate about building efficient and well-structured solutions. I've worked primarily with Go (Golang), developing APIs, handling concurrency, caching, and service integration. I like to understand the problem before diving into coding, always seeking simple, performant solutions that make sense in the long run."
   },
   "about": {
     "title": "About Me",
     "sections": {
       "whoIAm": "Who I Am",
-      "whoIAmText": "I'm a passionate software developer with expertise in building modern web applications. My journey in tech has been driven by curiosity and a constant desire to learn and improve. Specialized in frontend technologies with deep knowledge of React, TypeScript, and responsive design.",
+      "whoIAmText": "I'm a backend-focused developer, passionate about building efficient and well-structured solutions. I have worked primarily with Go (Golang), developing APIs, dealing with concurrency, caching, and service integration. I enjoy understanding the problem before jumping into coding, always seeking simple, performant, and sensible long-term solutions.",
       "experience": "Experience & Expertise",
-      "experienceText": "With experience in both frontend and backend development, I enjoy creating solutions that make a real impact. I believe in writing clean, maintainable code and following best practices to deliver high-quality software. Proficient in component architecture, state management, and UI/UX optimization.",
+      "experienceText": "My experience is focused on building backend systems and application architecture, with special attention to design and best practices. I have familiarity with concepts such as Clean Architecture, modularization, and service-oriented development.\n\nBesides that, I also navigate well between different layers of the system when needed, whether adjusting integrations, handling data, or structuring more efficient flows. I always seek to write clean code that's easy to maintain and scales without headaches.",
       "learning": "Continuous Learning",
-      "learningText": "When I'm not coding, I'm exploring new technologies, contributing to open source, or sharing knowledge with the developer community. Always seeking to improve skills and stay updated with industry trends and best practices."
+      "learningText": "I'm constantly evolving my skills, studying topics like microservices, messaging, containers (Docker/Kubernetes), and design patterns. I also have an interest in process automation, mainly in transforming manual tasks into smarter and more productive solutions.\n\nI enjoy exploring new tools and ideas, but always with a practical perspective: for me, technology needs to solve real problems."
     }
   },
   "experience": {

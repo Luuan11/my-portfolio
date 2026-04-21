@@ -53,7 +53,7 @@ export const skills: Skill[] = [
     icon: FaServer,
     titleKey: 'skills.cards.backend.title',
     descriptionKey: 'skills.cards.backend.description',
-    highlight: true
+    highlight: false
   },
   {
     icon: FaDatabase,
