@@ -36,6 +36,14 @@ const certifications = [
     logo: '/images/github-foundations.png',
     skills: ['Git', 'Github', 'GitHub Actions', 'CI/CD', 'Version Control']
   },
+  {
+    name: 'AWS Serverless Demonstrated',
+    issuer: 'AWS',
+    date: 'May 2026',
+    credentialUrl: 'https://www.credly.com/earner/earned/badge/2a0471a0-6514-475f-9548-0cdb52dfc159',
+    logo: '/images/aws-serverless-demonstrated.png',
+    skills: ['AWS', 'Serverless', 'AWS Lambda', 'API Gateway', 'DynamoDB']
+  },
 ]
 
 export function Education() {
@@ -45,7 +53,7 @@ export function Education() {
   const { t } = useTranslation()
 
   const displayedAcademic = showAllAcademic ? academicEducation : academicEducation.slice(0, 1)
-  const displayedCerts = showAllCerts ? certifications : certifications.slice(0, 1)
+  const displayedCerts = showAllCerts ? certifications : certifications.slice(0, 2)
 
   return (
     <section className="education" id="education">
@@ -217,7 +225,7 @@ export function Education() {
           </div>
 
           {/* Show More Button for Certs */}
-          {certifications.length > 1 && (
+          {certifications.length > 2 && (
             <motion.div
               className="education-button-container"
               initial={{ opacity: 0 }}
