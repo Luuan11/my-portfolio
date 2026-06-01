@@ -265,7 +265,8 @@
   position: relative;
   padding: 1.5rem;
   display: flex;
-  align-items: center;
+  flex: 1;
+  align-items: stretch;
   justify-content: flex-start;
   gap: 1.5rem;
   min-height: auto;
@@ -318,9 +319,9 @@
 .cert-skills {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  flex: 1;
 }
 
 .cert-skill-tag {
